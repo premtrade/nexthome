@@ -1,7 +1,7 @@
 'use client';
 
 import { useData } from '@/app/lib/useData';
-import { formatPrice, PARISHES, getCompBadgeClass, getPersonaIcon } from '@/app/lib/types';
+import { formatPrice, timeAgo, getCompBadgeClass, getPersonaIcon } from '@/app/lib/types';
 import {
   Building2, Cpu, TrendingUp, AlertTriangle,
   CheckCircle2, XCircle, Clock, RefreshCw, ArrowUpRight
