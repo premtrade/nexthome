@@ -1,7 +1,7 @@
 'use client';
 
-import { useData } from '../lib/useData';
-import { timeAgo } from '../lib/types';
+import { useData } from '@/app/lib/useData';
+import { timeAgo } from '@/app/lib/types';
 import {
     CheckCircle2, XCircle, Clock, Activity, Zap,
     Database, Brain, BarChart3, RefreshCw, ArrowRight

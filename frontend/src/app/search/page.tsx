@@ -1,9 +1,9 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import { useData } from '../lib/useData';
-import { formatPrice, getCompBadgeClass, getPersonaIcon, PARISHES } from '../lib/types';
-import type { Property } from '../lib/types';
+import { useData } from '@/app/lib/useData';
+import { formatPrice, getCompBadgeClass, getPersonaIcon, PARISHES } from '@/app/lib/types';
+import type { Property } from '@/app/lib/types';
 import { Search, MapPin, Bed, Bath, Sparkles, SlidersHorizontal, X } from 'lucide-react';
 
 export default function SearchPage() {

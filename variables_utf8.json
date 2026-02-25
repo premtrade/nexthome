@@ -1,0 +1,22 @@
+﻿{
+  "DATABASE_URL": "postgresql://postgres:VPRFSIoGsKLBkJijuuFcLRBYXGuRUewK@postgres.railway.internal:5432/railway",
+  "NEXT_PUBLIC_FLOWISE_URL": "https://flowise-production-59e4.up.railway.app",
+  "NEXT_PUBLIC_N8N_URL": "https://n8n-production-a9c19.up.railway.app",
+  "NEXT_PUBLIC_QDRANT_URL": "https://qdrant-production-4b9f.up.railway.app",
+  "NIXPACKS_NODE_VERSION": "20",
+  "NODE_VERSION": "20",
+  "RAILWAY_ENVIRONMENT": "production",
+  "RAILWAY_ENVIRONMENT_ID": "310fcb77-7c72-4e0d-b1f1-fd5bcec29a6d",
+  "RAILWAY_ENVIRONMENT_NAME": "production",
+  "RAILWAY_PRIVATE_DOMAIN": "frontend.railway.internal",
+  "RAILWAY_PROJECT_ID": "6f50429e-443c-425f-81b6-1740db846cbd",
+  "RAILWAY_PROJECT_NAME": "focused-cooperation",
+  "RAILWAY_PUBLIC_DOMAIN": "frontend-production-bdae.up.railway.app",
+  "RAILWAY_SERVICE_FLOWISE_URL": "flowise-production-59e4.up.railway.app",
+  "RAILWAY_SERVICE_FRONTEND_URL": "frontend-production-bdae.up.railway.app",
+  "RAILWAY_SERVICE_ID": "cafe5297-d198-4318-ab8f-51e0b205b5ea",
+  "RAILWAY_SERVICE_N8N_URL": "n8n-production-a9c19.up.railway.app",
+  "RAILWAY_SERVICE_NAME": "frontend",
+  "RAILWAY_SERVICE_QDRANT_URL": "qdrant-production-4b9f.up.railway.app",
+  "RAILWAY_STATIC_URL": "frontend-production-bdae.up.railway.app"
+}

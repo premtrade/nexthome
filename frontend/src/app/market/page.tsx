@@ -1,8 +1,8 @@
 'use client';
 
 import { useMemo } from 'react';
-import { useData } from '../lib/useData';
-import { formatPrice, PARISHES } from '../lib/types';
+import { useData } from '@/app/lib/useData';
+import { formatPrice, PARISHES } from '@/app/lib/types';
 import {
     TrendingUp, MapPin, DollarSign, BarChart3, Building2, RefreshCw
 } from 'lucide-react';

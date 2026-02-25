@@ -1,9 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import { useData } from '../lib/useData';
-import { formatPrice, timeAgo, getCompBadgeClass, getPersonaIcon, PARISHES } from '../lib/types';
-import type { Property } from '../lib/types';
+import { useData } from '@/app/lib/useData';
+import { formatPrice, timeAgo, getCompBadgeClass, getPersonaIcon, PARISHES } from '@/app/lib/types';
+import type { Property } from '@/app/lib/types';
 import {
     Plus, Search, RefreshCw, X, MapPin, Bed, Bath,
     DollarSign, Sparkles, RotateCcw, Trash2, Eye, ChevronDown
