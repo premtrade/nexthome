@@ -118,7 +118,7 @@ export default function MarketPage() {
                             <YAxis type="category" dataKey="name" tick={{ fill: '#94a3b8', fontSize: 11 }} axisLine={false} tickLine={false} width={80} />
                             <Tooltip
                                 contentStyle={{ background: '#1a1f2e', border: '1px solid #2a3149', borderRadius: 8, fontSize: 12 }}
-                                formatter={(value: number) => [formatPrice(value), 'Avg Price']}
+                                formatter={(value: any) => [formatPrice(Number(value) || 0), 'Avg Price']}
                             />
                             <Bar dataKey="avgPrice" fill="url(#marketBarGradient)" radius={[0, 6, 6, 0]} />
                             <defs>

@@ -1,0 +1,671 @@
+﻿{
+  "id": "6f50429e-443c-425f-81b6-1740db846cbd",
+  "name": "focused-cooperation",
+  "deletedAt": null,
+  "workspace": {
+    "name": "premtrade's Projects"
+  },
+  "environments": {
+    "edges": [
+      {
+        "node": {
+          "id": "310fcb77-7c72-4e0d-b1f1-fd5bcec29a6d",
+          "name": "production",
+          "canAccess": true,
+          "deletedAt": null,
+          "serviceInstances": {
+            "edges": [
+              {
+                "node": {
+                  "id": "04e0bf27-432c-4bc0-820f-c990ba73859d",
+                  "serviceId": "cafe5297-d198-4318-ab8f-51e0b205b5ea",
+                  "serviceName": "frontend",
+                  "environmentId": "310fcb77-7c72-4e0d-b1f1-fd5bcec29a6d",
+                  "latestDeployment": {
+                    "canRedeploy": true,
+                    "id": "3713b11f-991e-430f-bff6-bbd67604201c",
+                    "meta": {
+                      "buildOnly": false,
+                      "configFile": null,
+                      "fileServiceManifest": {},
+                      "ignoreWatchPatterns": true,
+                      "logsV2": true,
+                      "nixpacksProviders": [],
+                      "propertyFileMapping": {},
+                      "reason": "redeploy",
+                      "rootDirectory": null,
+                      "runtime": "V2",
+                      "serviceManifest": {
+                        "build": {
+                          "buildCommand": null,
+                          "buildEnvironment": null,
+                          "builder": "RAILPACK",
+                          "dockerfilePath": null,
+                          "nixpacksConfigPath": null,
+                          "nixpacksPlan": null,
+                          "watchPatterns": []
+                        },
+                        "deploy": {
+                          "cronSchedule": null,
+                          "drainingSeconds": null,
+                          "healthcheckPath": null,
+                          "healthcheckTimeout": null,
+                          "ipv6EgressEnabled": false,
+                          "limitOverride": null,
+                          "multiRegionConfig": {
+                            "us-east4-eqdc4a": {
+                              "numReplicas": 1
+                            }
+                          },
+                          "numReplicas": 1,
+                          "overlapSeconds": null,
+                          "preDeployCommand": null,
+                          "region": null,
+                          "registryCredentials": null,
+                          "requiredMountPath": null,
+                          "restartPolicyMaxRetries": 10,
+                          "restartPolicyType": "ON_FAILURE",
+                          "runtime": "V2",
+                          "sleepApplication": false,
+                          "startCommand": null,
+                          "useLegacyStacker": false
+                        }
+                      },
+                      "volumeMounts": []
+                    },
+                    "status": "FAILED",
+                    "createdAt": "2026-02-25T19:32:17.626Z",
+                    "deploymentStopped": true
+                  },
+                  "activeDeployments": [],
+                  "source": {
+                    "repo": null,
+                    "image": null
+                  },
+                  "domains": {
+                    "serviceDomains": [
+                      {
+                        "id": "b800c141-cd41-447e-b3c1-241c1e2277f0",
+                        "domain": "frontend-production-bdae.up.railway.app",
+                        "targetPort": null
+                      }
+                    ],
+                    "customDomains": []
+                  },
+                  "cronSchedule": null,
+                  "nextCronRunAt": null,
+                  "startCommand": null
+                }
+              },
+              {
+                "node": {
+                  "id": "15007e6b-cdb6-4db9-9f1a-873958363a0a",
+                  "serviceId": "ee65d1c5-2952-4849-ae90-e304a765c6a8",
+                  "serviceName": "flowise",
+                  "environmentId": "310fcb77-7c72-4e0d-b1f1-fd5bcec29a6d",
+                  "latestDeployment": {
+                    "canRedeploy": true,
+                    "id": "bcc4ba22-f4b4-47c2-b3c8-8041c6ce9e0d",
+                    "meta": {
+                      "image": "flowiseai/flowise:latest",
+                      "imageDigest": "sha256:c8aa4b4cb910a7b1aa56c4eb30cd41a67002400d84b1289f09c0a6b276b416c3",
+                      "logsV2": true,
+                      "patchId": "18c5e102-5259-4ca6-88ed-9487333a08bd",
+                      "reason": "deploy",
+                      "runtime": "V2",
+                      "serviceManifest": {
+                        "build": {
+                          "buildCommand": null,
+                          "buildEnvironment": null,
+                          "builder": "RAILPACK",
+                          "dockerfilePath": null,
+                          "nixpacksConfigPath": null,
+                          "nixpacksPlan": null,
+                          "watchPatterns": []
+                        },
+                        "deploy": {
+                          "cronSchedule": null,
+                          "drainingSeconds": null,
+                          "healthcheckPath": null,
+                          "healthcheckTimeout": null,
+                          "ipv6EgressEnabled": false,
+                          "limitOverride": null,
+                          "multiRegionConfig": {
+                            "us-east4-eqdc4a": {
+                              "numReplicas": 1
+                            }
+                          },
+                          "numReplicas": 1,
+                          "overlapSeconds": null,
+                          "preDeployCommand": null,
+                          "region": null,
+                          "registryCredentials": null,
+                          "requiredMountPath": null,
+                          "restartPolicyMaxRetries": 10,
+                          "restartPolicyType": "ON_FAILURE",
+                          "runtime": "V2",
+                          "sleepApplication": false,
+                          "startCommand": null,
+                          "useLegacyStacker": false
+                        }
+                      },
+                      "volumeMounts": []
+                    },
+                    "status": "SUCCESS",
+                    "createdAt": "2026-02-25T19:31:00.877Z",
+                    "deploymentStopped": true
+                  },
+                  "activeDeployments": [
+                    {
+                      "id": "bcc4ba22-f4b4-47c2-b3c8-8041c6ce9e0d",
+                      "status": "SUCCESS",
+                      "createdAt": "2026-02-25T19:31:00.877Z",
+                      "meta": {
+                        "image": "flowiseai/flowise:latest",
+                        "imageDigest": "sha256:c8aa4b4cb910a7b1aa56c4eb30cd41a67002400d84b1289f09c0a6b276b416c3",
+                        "logsV2": true,
+                        "patchId": "18c5e102-5259-4ca6-88ed-9487333a08bd",
+                        "reason": "deploy",
+                        "runtime": "V2",
+                        "serviceManifest": {
+                          "build": {
+                            "buildCommand": null,
+                            "buildEnvironment": null,
+                            "builder": "RAILPACK",
+                            "dockerfilePath": null,
+                            "nixpacksConfigPath": null,
+                            "nixpacksPlan": null,
+                            "watchPatterns": []
+                          },
+                          "deploy": {
+                            "cronSchedule": null,
+                            "drainingSeconds": null,
+                            "healthcheckPath": null,
+                            "healthcheckTimeout": null,
+                            "ipv6EgressEnabled": false,
+                            "limitOverride": null,
+                            "multiRegionConfig": {
+                              "us-east4-eqdc4a": {
+                                "numReplicas": 1
+                              }
+                            },
+                            "numReplicas": 1,
+                            "overlapSeconds": null,
+                            "preDeployCommand": null,
+                            "region": null,
+                            "registryCredentials": null,
+                            "requiredMountPath": null,
+                            "restartPolicyMaxRetries": 10,
+                            "restartPolicyType": "ON_FAILURE",
+                            "runtime": "V2",
+                            "sleepApplication": false,
+                            "startCommand": null,
+                            "useLegacyStacker": false
+                          }
+                        },
+                        "volumeMounts": []
+                      }
+                    }
+                  ],
+                  "source": {
+                    "repo": null,
+                    "image": "flowiseai/flowise:latest"
+                  },
+                  "domains": {
+                    "serviceDomains": [
+                      {
+                        "id": "3b75d905-7ca6-4014-8884-a5c0119c8aa2",
+                        "domain": "flowise-production-59e4.up.railway.app",
+                        "targetPort": null
+                      }
+                    ],
+                    "customDomains": []
+                  },
+                  "cronSchedule": null,
+                  "nextCronRunAt": null,
+                  "startCommand": null
+                }
+              },
+              {
+                "node": {
+                  "id": "4055d012-a0e5-4019-b2ed-ac86d2ef2f73",
+                  "serviceId": "9f24ff70-c124-40bf-9eb2-fd3ad7a8898f",
+                  "serviceName": "Postgres",
+                  "environmentId": "310fcb77-7c72-4e0d-b1f1-fd5bcec29a6d",
+                  "latestDeployment": {
+                    "canRedeploy": true,
+                    "id": "7387d18c-4ff2-44e2-b242-3c69a14bc9c6",
+                    "meta": {
+                      "image": "ghcr.io/railwayapp-templates/postgres-ssl:17",
+                      "imageDigest": "sha256:8833048aa51a51a8f19c01f228db7fdb74a68c1a709d4b1e77a8b72d1c60e57f",
+                      "logsV2": true,
+                      "patchId": "4afd79fa-0fc6-4e28-a4c0-ef7aaede717b",
+                      "reason": "deploy",
+                      "runtime": "V2",
+                      "serviceManifest": {
+                        "build": {
+                          "buildCommand": null,
+                          "buildEnvironment": null,
+                          "builder": "RAILPACK",
+                          "dockerfilePath": null,
+                          "nixpacksConfigPath": null,
+                          "nixpacksPlan": null,
+                          "watchPatterns": []
+                        },
+                        "deploy": {
+                          "cronSchedule": null,
+                          "drainingSeconds": null,
+                          "healthcheckPath": null,
+                          "healthcheckTimeout": null,
+                          "ipv6EgressEnabled": false,
+                          "limitOverride": null,
+                          "multiRegionConfig": {
+                            "us-east4-eqdc4a": {
+                              "numReplicas": 1
+                            }
+                          },
+                          "numReplicas": 1,
+                          "overlapSeconds": null,
+                          "preDeployCommand": null,
+                          "region": null,
+                          "registryCredentials": null,
+                          "requiredMountPath": null,
+                          "restartPolicyMaxRetries": 10,
+                          "restartPolicyType": "ON_FAILURE",
+                          "runtime": "V2",
+                          "sleepApplication": false,
+                          "startCommand": null,
+                          "useLegacyStacker": false
+                        }
+                      },
+                      "volumeMounts": [
+                        "/var/lib/postgresql/data"
+                      ]
+                    },
+                    "status": "SUCCESS",
+                    "createdAt": "2026-02-25T16:14:43.425Z",
+                    "deploymentStopped": false
+                  },
+                  "activeDeployments": [
+                    {
+                      "id": "7387d18c-4ff2-44e2-b242-3c69a14bc9c6",
+                      "status": "SUCCESS",
+                      "createdAt": "2026-02-25T16:14:43.425Z",
+                      "meta": {
+                        "image": "ghcr.io/railwayapp-templates/postgres-ssl:17",
+                        "imageDigest": "sha256:8833048aa51a51a8f19c01f228db7fdb74a68c1a709d4b1e77a8b72d1c60e57f",
+                        "logsV2": true,
+                        "patchId": "4afd79fa-0fc6-4e28-a4c0-ef7aaede717b",
+                        "reason": "deploy",
+                        "runtime": "V2",
+                        "serviceManifest": {
+                          "build": {
+                            "buildCommand": null,
+                            "buildEnvironment": null,
+                            "builder": "RAILPACK",
+                            "dockerfilePath": null,
+                            "nixpacksConfigPath": null,
+                            "nixpacksPlan": null,
+                            "watchPatterns": []
+                          },
+                          "deploy": {
+                            "cronSchedule": null,
+                            "drainingSeconds": null,
+                            "healthcheckPath": null,
+                            "healthcheckTimeout": null,
+                            "ipv6EgressEnabled": false,
+                            "limitOverride": null,
+                            "multiRegionConfig": {
+                              "us-east4-eqdc4a": {
+                                "numReplicas": 1
+                              }
+                            },
+                            "numReplicas": 1,
+                            "overlapSeconds": null,
+                            "preDeployCommand": null,
+                            "region": null,
+                            "registryCredentials": null,
+                            "requiredMountPath": null,
+                            "restartPolicyMaxRetries": 10,
+                            "restartPolicyType": "ON_FAILURE",
+                            "runtime": "V2",
+                            "sleepApplication": false,
+                            "startCommand": null,
+                            "useLegacyStacker": false
+                          }
+                        },
+                        "volumeMounts": [
+                          "/var/lib/postgresql/data"
+                        ]
+                      }
+                    }
+                  ],
+                  "source": {
+                    "repo": null,
+                    "image": "ghcr.io/railwayapp-templates/postgres-ssl:17"
+                  },
+                  "domains": {
+                    "serviceDomains": [],
+                    "customDomains": []
+                  },
+                  "cronSchedule": null,
+                  "nextCronRunAt": null,
+                  "startCommand": null
+                }
+              },
+              {
+                "node": {
+                  "id": "6b194442-2d29-4047-b8c2-7b106589f6e8",
+                  "serviceId": "d278903d-8613-40f9-8103-596b63acaebb",
+                  "serviceName": "n8n",
+                  "environmentId": "310fcb77-7c72-4e0d-b1f1-fd5bcec29a6d",
+                  "latestDeployment": {
+                    "canRedeploy": true,
+                    "id": "fc82ba03-6e5c-48bd-bdb7-1d1ea074b8e7",
+                    "meta": {
+                      "image": "n8nio/n8n:latest",
+                      "imageDigest": "sha256:fdf1e22bc04a03e38da41da5a56ba9b9a48510f480874290ea9c180844cbdb0c",
+                      "logsV2": true,
+                      "patchId": "647dd018-006b-4d65-b5c7-b0da1ab95e0f",
+                      "reason": "deploy",
+                      "runtime": "V2",
+                      "serviceManifest": {
+                        "build": {
+                          "buildCommand": null,
+                          "buildEnvironment": null,
+                          "builder": "RAILPACK",
+                          "dockerfilePath": null,
+                          "nixpacksConfigPath": null,
+                          "nixpacksPlan": null,
+                          "watchPatterns": []
+                        },
+                        "deploy": {
+                          "cronSchedule": null,
+                          "drainingSeconds": null,
+                          "healthcheckPath": null,
+                          "healthcheckTimeout": null,
+                          "ipv6EgressEnabled": false,
+                          "limitOverride": null,
+                          "multiRegionConfig": {
+                            "us-east4-eqdc4a": {
+                              "numReplicas": 1
+                            }
+                          },
+                          "numReplicas": 1,
+                          "overlapSeconds": null,
+                          "preDeployCommand": null,
+                          "region": null,
+                          "registryCredentials": null,
+                          "requiredMountPath": null,
+                          "restartPolicyMaxRetries": 10,
+                          "restartPolicyType": "ON_FAILURE",
+                          "runtime": "V2",
+                          "sleepApplication": false,
+                          "startCommand": null,
+                          "useLegacyStacker": false
+                        }
+                      },
+                      "volumeMounts": []
+                    },
+                    "status": "SUCCESS",
+                    "createdAt": "2026-02-25T16:24:28.144Z",
+                    "deploymentStopped": false
+                  },
+                  "activeDeployments": [
+                    {
+                      "id": "fc82ba03-6e5c-48bd-bdb7-1d1ea074b8e7",
+                      "status": "SUCCESS",
+                      "createdAt": "2026-02-25T16:24:28.144Z",
+                      "meta": {
+                        "image": "n8nio/n8n:latest",
+                        "imageDigest": "sha256:fdf1e22bc04a03e38da41da5a56ba9b9a48510f480874290ea9c180844cbdb0c",
+                        "logsV2": true,
+                        "patchId": "647dd018-006b-4d65-b5c7-b0da1ab95e0f",
+                        "reason": "deploy",
+                        "runtime": "V2",
+                        "serviceManifest": {
+                          "build": {
+                            "buildCommand": null,
+                            "buildEnvironment": null,
+                            "builder": "RAILPACK",
+                            "dockerfilePath": null,
+                            "nixpacksConfigPath": null,
+                            "nixpacksPlan": null,
+                            "watchPatterns": []
+                          },
+                          "deploy": {
+                            "cronSchedule": null,
+                            "drainingSeconds": null,
+                            "healthcheckPath": null,
+                            "healthcheckTimeout": null,
+                            "ipv6EgressEnabled": false,
+                            "limitOverride": null,
+                            "multiRegionConfig": {
+                              "us-east4-eqdc4a": {
+                                "numReplicas": 1
+                              }
+                            },
+                            "numReplicas": 1,
+                            "overlapSeconds": null,
+                            "preDeployCommand": null,
+                            "region": null,
+                            "registryCredentials": null,
+                            "requiredMountPath": null,
+                            "restartPolicyMaxRetries": 10,
+                            "restartPolicyType": "ON_FAILURE",
+                            "runtime": "V2",
+                            "sleepApplication": false,
+                            "startCommand": null,
+                            "useLegacyStacker": false
+                          }
+                        },
+                        "volumeMounts": []
+                      }
+                    }
+                  ],
+                  "source": {
+                    "repo": null,
+                    "image": "n8nio/n8n:latest"
+                  },
+                  "domains": {
+                    "serviceDomains": [
+                      {
+                        "id": "2da86eb8-e54d-46f9-9f6e-ad1fd2163646",
+                        "domain": "n8n-production-a9c19.up.railway.app",
+                        "targetPort": null
+                      }
+                    ],
+                    "customDomains": []
+                  },
+                  "cronSchedule": null,
+                  "nextCronRunAt": null,
+                  "startCommand": null
+                }
+              },
+              {
+                "node": {
+                  "id": "e59c8cb6-92af-4dd8-8b7c-ec47c1289178",
+                  "serviceId": "970b92e0-ffbd-4fab-9a41-25354f97bb72",
+                  "serviceName": "qdrant",
+                  "environmentId": "310fcb77-7c72-4e0d-b1f1-fd5bcec29a6d",
+                  "latestDeployment": {
+                    "canRedeploy": true,
+                    "id": "f847f5ff-444a-45c4-923e-060855dfaf71",
+                    "meta": {
+                      "image": "qdrant/qdrant:latest",
+                      "imageDigest": "sha256:f1c7272cdac52b38c1a0e89313922d940ba50afd90d593a1605dbbc214e66ffb",
+                      "logsV2": true,
+                      "queuedReason": "Waiting for deployment slot",
+                      "reason": "deploy",
+                      "runtime": "V2",
+                      "serviceManifest": {
+                        "build": {
+                          "buildCommand": null,
+                          "buildEnvironment": null,
+                          "builder": "RAILPACK",
+                          "dockerfilePath": null,
+                          "nixpacksConfigPath": null,
+                          "nixpacksPlan": null,
+                          "watchPatterns": []
+                        },
+                        "deploy": {
+                          "cronSchedule": null,
+                          "drainingSeconds": null,
+                          "healthcheckPath": null,
+                          "healthcheckTimeout": null,
+                          "ipv6EgressEnabled": false,
+                          "limitOverride": null,
+                          "multiRegionConfig": {
+                            "us-east4-eqdc4a": {
+                              "numReplicas": 1
+                            }
+                          },
+                          "numReplicas": 1,
+                          "overlapSeconds": null,
+                          "preDeployCommand": null,
+                          "region": null,
+                          "registryCredentials": null,
+                          "requiredMountPath": null,
+                          "restartPolicyMaxRetries": 10,
+                          "restartPolicyType": "ON_FAILURE",
+                          "runtime": "V2",
+                          "sleepApplication": false,
+                          "startCommand": null,
+                          "useLegacyStacker": false
+                        }
+                      },
+                      "volumeMounts": []
+                    },
+                    "status": "SUCCESS",
+                    "createdAt": "2026-02-25T16:15:04.422Z",
+                    "deploymentStopped": false
+                  },
+                  "activeDeployments": [
+                    {
+                      "id": "f847f5ff-444a-45c4-923e-060855dfaf71",
+                      "status": "SUCCESS",
+                      "createdAt": "2026-02-25T16:15:04.422Z",
+                      "meta": {
+                        "image": "qdrant/qdrant:latest",
+                        "imageDigest": "sha256:f1c7272cdac52b38c1a0e89313922d940ba50afd90d593a1605dbbc214e66ffb",
+                        "logsV2": true,
+                        "queuedReason": "Waiting for deployment slot",
+                        "reason": "deploy",
+                        "runtime": "V2",
+                        "serviceManifest": {
+                          "build": {
+                            "buildCommand": null,
+                            "buildEnvironment": null,
+                            "builder": "RAILPACK",
+                            "dockerfilePath": null,
+                            "nixpacksConfigPath": null,
+                            "nixpacksPlan": null,
+                            "watchPatterns": []
+                          },
+                          "deploy": {
+                            "cronSchedule": null,
+                            "drainingSeconds": null,
+                            "healthcheckPath": null,
+                            "healthcheckTimeout": null,
+                            "ipv6EgressEnabled": false,
+                            "limitOverride": null,
+                            "multiRegionConfig": {
+                              "us-east4-eqdc4a": {
+                                "numReplicas": 1
+                              }
+                            },
+                            "numReplicas": 1,
+                            "overlapSeconds": null,
+                            "preDeployCommand": null,
+                            "region": null,
+                            "registryCredentials": null,
+                            "requiredMountPath": null,
+                            "restartPolicyMaxRetries": 10,
+                            "restartPolicyType": "ON_FAILURE",
+                            "runtime": "V2",
+                            "sleepApplication": false,
+                            "startCommand": null,
+                            "useLegacyStacker": false
+                          }
+                        },
+                        "volumeMounts": []
+                      }
+                    }
+                  ],
+                  "source": {
+                    "repo": null,
+                    "image": "qdrant/qdrant:latest"
+                  },
+                  "domains": {
+                    "serviceDomains": [
+                      {
+                        "id": "a937fe70-9534-4afd-b8b8-c30d954535b1",
+                        "domain": "qdrant-production-4b9f.up.railway.app",
+                        "targetPort": null
+                      }
+                    ],
+                    "customDomains": []
+                  },
+                  "cronSchedule": null,
+                  "nextCronRunAt": null,
+                  "startCommand": null
+                }
+              }
+            ]
+          },
+          "volumeInstances": {
+            "edges": [
+              {
+                "node": {
+                  "serviceId": "9f24ff70-c124-40bf-9eb2-fd3ad7a8898f",
+                  "mountPath": "/var/lib/postgresql/data",
+                  "environmentId": "310fcb77-7c72-4e0d-b1f1-fd5bcec29a6d",
+                  "currentSizeMB": 0.0,
+                  "sizeMB": 5000,
+                  "volume": {
+                    "name": "postgres-volume",
+                    "id": "3a7e3805-d309-42c4-88cd-c0c2d842383a"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "services": {
+    "edges": [
+      {
+        "node": {
+          "id": "970b92e0-ffbd-4fab-9a41-25354f97bb72",
+          "name": "qdrant"
+        }
+      },
+      {
+        "node": {
+          "id": "9f24ff70-c124-40bf-9eb2-fd3ad7a8898f",
+          "name": "Postgres"
+        }
+      },
+      {
+        "node": {
+          "id": "cafe5297-d198-4318-ab8f-51e0b205b5ea",
+          "name": "frontend"
+        }
+      },
+      {
+        "node": {
+          "id": "d278903d-8613-40f9-8103-596b63acaebb",
+          "name": "n8n"
+        }
+      },
+      {
+        "node": {
+          "id": "ee65d1c5-2952-4849-ae90-e304a765c6a8",
+          "name": "flowise"
+        }
+      }
+    ]
+  }
+}
