@@ -1,0 +1,15 @@
+[
+  {
+    "id": "UiVjly5vgM3yn3AG",
+    "name": "Postgres account",
+    "type": "postgres",
+    "data": {
+      "host": "db",
+      "port": 5432,
+      "database": "saas_db",
+      "user": "n8n_user",
+      "password": "n8n_password",
+      "ssl": "disable"
+    }
+  }
+]

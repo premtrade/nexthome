@@ -1,0 +1,9 @@
+{
+    "question": "test",
+    "title": "Test Title",
+    "location": "Test Loc",
+    "bedrooms": "3",
+    "bathrooms": "2",
+    "price": "1000",
+    "amenities": "none"
+}

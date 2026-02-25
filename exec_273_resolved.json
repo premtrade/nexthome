@@ -1,0 +1,336 @@
+{
+  "version": 1,
+  "startData": {},
+  "resultData": {
+    "error": {
+      "level": "warning",
+      "tags": {},
+      "description": "Error: predictionsServices.buildChatflow - Error: Single '}' in template.",
+      "timestamp": 1771990713448,
+      "context": {
+        "itemIndex": 0,
+        "request": {
+          "body": {
+            "question": "Classify persona for this property:\nTitle: Test Luxury Villa\nDescription: Beautiful beachfront property with a private pool and garden.\nPrice: 1200000.00\nAmenities: ",
+            "overrideConfig": {
+              "property_id": "09300ab4-cd49-4347-9927-9e1d61664b71",
+              "tenant_id": "00000000-0000-0000-0000-000000000001"
+            }
+          },
+          "headers": {
+            "accept": "application/json,text/html,application/xhtml+xml,application/xml,text/*;q=0.9, image/*;q=0.8, */*;q=0.7"
+          },
+          "method": "POST",
+          "uri": "http://flowise:3000/api/v1/prediction/734fc77d-ecf1-47eb-bc96-2bab58862c78",
+          "gzip": true,
+          "rejectUnauthorized": true,
+          "followRedirect": true,
+          "resolveWithFullResponse": true,
+          "sendCredentialsOnCrossOriginRedirect": true,
+          "followAllRedirects": true,
+          "timeout": 300000,
+          "encoding": null,
+          "json": false,
+          "useStream": true
+        }
+      },
+      "functionality": "regular",
+      "name": "NodeApiError",
+      "node": {
+        "parameters": {
+          "curlImport": "",
+          "method": "<<LOOP: 50>>",
+          "url": "<<LOOP: 51>>",
+          "authentication": "none",
+          "provideSslCertificates": false,
+          "sendQuery": false,
+          "sendHeaders": false,
+          "sendBody": true,
+          "contentType": "json",
+          "specifyBody": "<<LOOP: 54>>",
+          "jsonBody": "={\n  \"question\": \"Classify persona for this property:\\nTitle: {{ $node['Normalization'].json.title }}\\nDescription: {{ $node['Normalization'].json.description }}\\nPrice: {{ $node['Normalization'].json.price }}\\nAmenities: {{ $node['Normalization'].json.amenities_text }}\",\n  \"overrideConfig\": {\n    \"property_id\": \"{{ $node['Normalization'].json.id }}\",\n    \"tenant_id\": \"{{ $node['Normalization'].json.tenant_id }}\"\n  }\n}",
+          "options": {},
+          "infoMessage": "<<LOOP: 52>>"
+        },
+        "id": "<<LOOP: 4>>",
+        "name": "Persona Classification",
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.1,
+        "position": [
+          860,
+          300
+        ],
+        "retryOnFail": true,
+        "maxRetries": 3
+      },
+      "messages": [
+        "500 - \"{\\\"statusCode\\\":500,\\\"success\\\":false,\\\"message\\\":\\\"Error: predictionsServices.buildChatflow - Error: Single '}' in template.\\\",\\\"stack\\\":{}}\""
+      ],
+      "httpCode": "500",
+      "message": "The service was not able to process your request",
+      "stack": "NodeApiError: The service was not able to process your request\n    at ExecuteContext.execute (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-nodes-base@file+packages+nodes-base_@aws-sdk+credential-providers@3.808.0_asn1.js@5_8da18263ca0574b0db58d4fefd8173ce/node_modules/n8n-nodes-base/nodes/HttpRequest/V3/HttpRequestV3.node.ts:864:16)\n    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at WorkflowExecute.executeNode (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file+packages+core_@opentelemetry+api@1.9.0_@opentelemetry+exporter-trace-otlp_9f358c3eeaef0d2736f54ac9757ada43/node_modules/n8n-core/src/execution-engine/workflow-execute.ts:1043:8)\n    at WorkflowExecute.runNode (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file+packages+core_@opentelemetry+api@1.9.0_@opentelemetry+exporter-trace-otlp_9f358c3eeaef0d2736f54ac9757ada43/node_modules/n8n-core/src/execution-engine/workflow-execute.ts:1222:11)\n    at /usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file+packages+core_@opentelemetry+api@1.9.0_@opentelemetry+exporter-trace-otlp_9f358c3eeaef0d2736f54ac9757ada43/node_modules/n8n-core/src/execution-engine/workflow-execute.ts:1659:27\n    at /usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file+packages+core_@opentelemetry+api@1.9.0_@opentelemetry+exporter-trace-otlp_9f358c3eeaef0d2736f54ac9757ada43/node_modules/n8n-core/src/execution-engine/workflow-execute.ts:2302:11"
+    },
+    "runData": {
+      "Schedule Trigger": [
+        {
+          "startTime": 1771990708260,
+          "executionIndex": 0,
+          "source": [],
+          "hints": [],
+          "executionTime": 6,
+          "executionStatus": "success",
+          "data": {
+            "main": [
+              [
+                {
+                  "json": {
+                    "timestamp": "2026-02-24T22:38:28.064-05:00",
+                    "Readable date": "February 24th 2026, 10:38:28 pm",
+                    "Readable time": "10:38:28 pm",
+                    "Day of week": "Tuesday",
+                    "Year": "2026",
+                    "Month": "February",
+                    "Day of month": "<<LOOP: 24>>",
+                    "Hour": "<<LOOP: 22>>",
+                    "Minute": "<<LOOP: 38>>",
+                    "Second": [
+                      {
+                        "startTime": 1771990710794,
+                        "executionIndex": 4,
+                        "source": [
+                          {
+                            "previousNode": "SEO Generation",
+                            "previousNodeOutput": 0,
+                            "previousNodeRun": 0
+                          }
+                        ],
+                        "hints": [],
+                        "executionTime": 2656,
+                        "executionStatus": "error",
+                        "error": {
+                          "level": "<<LOOP: 13>>",
+                          "tags": "<<LOOP: 14>>",
+                          "description": "<<LOOP: 15>>",
+                          "timestamp": 1771990713448,
+                          "context": "<<LOOP: 16>>",
+                          "functionality": "<<LOOP: 17>>",
+                          "name": "<<LOOP: 18>>",
+                          "node": "<<LOOP: 19>>",
+                          "messages": "<<LOOP: 20>>",
+                          "httpCode": "<<LOOP: 21>>",
+                          "message": "<<LOOP: 22>>",
+                          "stack": "<<LOOP: 23>>"
+                        }
+                      }
+                    ],
+                    "Timezone": "America/New_York (UTC-05:00)"
+                  },
+                  "pairedItem": {
+                    "item": 0
+                  }
+                }
+              ]
+            ]
+          }
+        }
+      ],
+      "Trigger Polling": [
+        {
+          "startTime": 1771990708271,
+          "executionIndex": 1,
+          "source": [
+            {
+              "previousNode": "Schedule Trigger",
+              "previousNodeOutput": 0,
+              "previousNodeRun": 0
+            }
+          ],
+          "hints": [],
+          "executionTime": 168,
+          "executionStatus": "<<LOOP: 59>>",
+          "data": {
+            "main": [
+              [
+                {
+                  "json": {
+                    "id": "<<LOOP: 90>>",
+                    "tenant_id": "<<LOOP: 91>>",
+                    "title": "Test Luxury Villa",
+                    "description": "Beautiful beachfront property with a private pool and garden.",
+                    "price": "1200000.00",
+                    "parish": "St. James",
+                    "bedrooms": 4,
+                    "bathrooms": 3,
+                    "lot_size": null,
+                    "amenities": [],
+                    "status": "active",
+                    "assigned_agent_id": null,
+                    "seo_description": null,
+                    "meta_title": null,
+                    "meta_description": null,
+                    "buyer_persona": null,
+                    "competitiveness": null,
+                    "ai_processed": false,
+                    "created_at": "2026-02-24T12:44:48.217Z",
+                    "updated_at": "<<LOOP: 136>>"
+                  },
+                  "pairedItem": {
+                    "item": 0
+                  }
+                }
+              ]
+            ]
+          }
+        }
+      ],
+      "Normalization": [
+        {
+          "startTime": 1771990708439,
+          "executionIndex": 2,
+          "source": [
+            {
+              "previousNode": "Trigger Polling",
+              "previousNodeOutput": 0,
+              "previousNodeRun": 0
+            }
+          ],
+          "hints": [],
+          "executionTime": 4,
+          "executionStatus": "<<LOOP: 59>>",
+          "data": {
+            "main": [
+              [
+                {
+                  "json": {
+                    "id": "<<LOOP: 90>>",
+                    "tenant_id": "<<LOOP: 91>>",
+                    "title": "<<LOOP: 130>>",
+                    "description": "<<LOOP: 131>>",
+                    "price": "<<LOOP: 132>>",
+                    "parish": "<<LOOP: 133>>",
+                    "bedrooms": 4,
+                    "bathrooms": 3,
+                    "lot_size": null,
+                    "amenities": [],
+                    "status": "<<LOOP: 135>>",
+                    "assigned_agent_id": null,
+                    "seo_description": null,
+                    "meta_title": null,
+                    "meta_description": null,
+                    "buyer_persona": null,
+                    "competitiveness": null,
+                    "ai_processed": false,
+                    "created_at": "<<LOOP: 136>>",
+                    "updated_at": "<<LOOP: 136>>"
+                  },
+                  "pairedItem": {
+                    "item": 0
+                  }
+                }
+              ]
+            ]
+          }
+        }
+      ],
+      "SEO Generation": [
+        {
+          "startTime": 1771990708444,
+          "executionIndex": 3,
+          "source": [
+            {
+              "previousNode": "Normalization",
+              "previousNodeOutput": 0,
+              "previousNodeRun": 0
+            }
+          ],
+          "hints": [],
+          "executionTime": 2349,
+          "executionStatus": "<<LOOP: 59>>",
+          "data": {
+            "main": [
+              [
+                {
+                  "json": {
+                    "text": "```json\n{\n  \"seo_description\": \"Indulge in the finest luxury living experience at the Test Luxury Villa, nestled in the exclusive neighborhood of St. James. This stunning 4-bedroom, 3-bathroom villa is a masterpiece of design and sophistication, offering the perfect blend of elegance and comfort. With its spacious interiors, beautifully appointed finishes, and expansive outdoor spaces, this villa is ideal for entertaining, relaxing, and creating unforgettable memories. Priced at $1,200,000, this exceptional property represents a rare opportunity to own a piece of paradise in one of the most desirable locations in the Caribbean. St. James is renowned for its pristine beaches, world-class amenities, and vibrant community, making this villa an ideal choice for families, couples, and individuals seeking a luxurious and relaxed lifestyle. From its stunning architecture to its impeccable finishes, every detail of this villa has been carefully crafted to provide the ultimate luxury living experience. Contact us today to schedule a viewing and discover the epitome of luxury living in St. James.\",\n  \"meta_title\": \"Luxury St James\",\n  \"meta_description\": \"4-bed villa in St James for $1.2M, luxury living\"\n}\n```",
+                    "question": "Generate SEO for this property:\nTitle: Test Luxury Villa\nLocation: St. James\nBedrooms: 4\nBathrooms: 3\nPrice: 1200000.00\nAmenities: ",
+                    "chatId": "aa5fafee-1acc-4c09-9d57-45c88ba196ae",
+                    "chatMessageId": "707cf32e-45d5-40e5-ac75-37227fd89350",
+                    "isStreamValid": false,
+                    "sessionId": {
+                      "version": 1,
+                      "establishedAt": 1771990708247,
+                      "source": "trigger",
+                      "triggerNode": {
+                        "name": "<<LOOP: 46>>",
+                        "type": "n8n-nodes-base.scheduleTrigger"
+                      }
+                    },
+                    "memoryType": "Buffer Memory"
+                  },
+                  "pairedItem": {
+                    "item": 0
+                  }
+                }
+              ]
+            ]
+          }
+        }
+      ],
+      "Persona Classification": "<<LOOP: 28>>"
+    },
+    "lastNodeExecuted": "<<LOOP: 6>>"
+  },
+  "executionData": {
+    "contextData": {},
+    "nodeExecutionStack": [
+      {
+        "node": {
+          "parameters": {
+            "curlImport": "<<LOOP: 52>>",
+            "method": "<<LOOP: 50>>",
+            "url": "<<LOOP: 51>>",
+            "authentication": "<<LOOP: 53>>",
+            "provideSslCertificates": false,
+            "sendQuery": false,
+            "sendHeaders": false,
+            "sendBody": true,
+            "contentType": "<<LOOP: 54>>",
+            "specifyBody": "<<LOOP: 54>>",
+            "jsonBody": "<<LOOP: 55>>",
+            "options": {},
+            "infoMessage": "<<LOOP: 52>>"
+          },
+          "id": "<<LOOP: 34>>",
+          "name": "<<LOOP: 6>>",
+          "type": "<<LOOP: 35>>",
+          "typeVersion": 4.1,
+          "position": [
+            860,
+            300
+          ],
+          "retryOnFail": true,
+          "maxRetries": 3
+        },
+        "data": {
+          "main": [
+            [
+              {
+                "json": "<<LOOP: 104>>",
+                "pairedItem": {
+                  "item": 0
+                }
+              }
+            ]
+          ]
+        },
+        "source": {
+          "main": "<<LOOP: 70>>"
+        }
+      }
+    ],
+    "metadata": {},
+    "waitingExecution": {},
+    "waitingExecutionSource": {},
+    "runtimeData": "<<LOOP: 12>>"
+  }
+}

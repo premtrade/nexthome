@@ -1,0 +1,352 @@
+[
+  {
+    "id": "conversationChain_0",
+    "position": {
+      "x": 1103.3210526315788,
+      "y": 141.64210526315787
+    },
+    "type": "customNode",
+    "data": {
+      "label": "Conversation Chain",
+      "name": "conversationChain",
+      "version": 3,
+      "type": "ConversationChain",
+      "icon": "/usr/local/lib/node_modules/flowise/node_modules/flowise-components/dist/nodes/chains/ConversationChain/conv.svg",
+      "category": "Chains",
+      "description": "Chat models specific conversational chain with memory",
+      "baseClasses": [
+        "ConversationChain",
+        "LLMChain",
+        "BaseChain",
+        "Runnable"
+      ],
+      "inputs": {
+        "model": "{{chatOpenAICustom_0.data.instance}}",
+        "memory": "{{bufferMemory_0.data.instance}}",
+        "chatPromptTemplate": "",
+        "inputModeration": "",
+        "systemMessagePrompt": "You are a real estate market analyst. Classify the provided property into the most appropriate buyer persona.\n\nChoose ONLY one from this list:\n- First-time buyer\n- Luxury buyer\n- Investor\n- Diaspora returnee\n- Commercial investor\n\nOutput MUST be a valid JSON object:\n  \"primary_persona\": \"...\",\n  \"confidence\": [0-1 score]\n\nProperty Details:\n```\n",
+        "systemMessage": "You are a real estate market analyst. Classify the property into the most appropriate buyer persona.\nChoose ONLY one from: First-time buyer, Luxury buyer, Investor, Diaspora returnee, Commercial investor.\nOutput MUST be a valid JSON object with keys: primary_persona, confidence."
+      },
+      "filePath": "/usr/local/lib/node_modules/flowise/node_modules/flowise-components/dist/nodes/chains/ConversationChain/ConversationChain.js",
+      "inputAnchors": [
+        {
+          "label": "Chat Model",
+          "name": "model",
+          "type": "BaseChatModel",
+          "id": "conversationChain_0-input-model-BaseChatModel",
+          "display": true
+        },
+        {
+          "label": "Memory",
+          "name": "memory",
+          "type": "BaseMemory",
+          "id": "conversationChain_0-input-memory-BaseMemory",
+          "display": true
+        },
+        {
+          "label": "Chat Prompt Template",
+          "name": "chatPromptTemplate",
+          "type": "ChatPromptTemplate",
+          "description": "Override existing prompt with Chat Prompt Template. Human Message must includes {input} variable",
+          "optional": true,
+          "id": "conversationChain_0-input-chatPromptTemplate-ChatPromptTemplate",
+          "display": true
+        },
+        {
+          "label": "Input Moderation",
+          "description": "Detect text that could generate harmful output and prevent it from being sent to the language model",
+          "name": "inputModeration",
+          "type": "Moderation",
+          "optional": true,
+          "list": true,
+          "id": "conversationChain_0-input-inputModeration-Moderation",
+          "display": true
+        }
+      ],
+      "inputParams": [
+        {
+          "label": "System Message",
+          "name": "systemMessagePrompt",
+          "type": "string",
+          "rows": 4,
+          "description": "If Chat Prompt Template is provided, this will be ignored",
+          "additionalParams": true,
+          "optional": true,
+          "default": "The following is a friendly conversation between a human and an AI. The AI is talkative and provides lots of specific details from its context. If the AI does not know the answer to a question, it truthfully says it does not know.",
+          "placeholder": "The following is a friendly conversation between a human and an AI. The AI is talkative and provides lots of specific details from its context. If the AI does not know the answer to a question, it truthfully says it does not know.",
+          "id": "conversationChain_0-input-systemMessagePrompt-string",
+          "display": true
+        }
+      ],
+      "outputs": {},
+      "outputAnchors": [
+        {
+          "id": "conversationChain_0-output-conversationChain-ConversationChain|LLMChain|BaseChain|Runnable",
+          "name": "conversationChain",
+          "label": "ConversationChain",
+          "description": "Chat models specific conversational chain with memory",
+          "type": "ConversationChain | LLMChain | BaseChain | Runnable"
+        }
+      ],
+      "id": "conversationChain_0",
+      "selected": false
+    },
+    "width": 300,
+    "height": 441,
+    "selected": true,
+    "positionAbsolute": {
+      "x": 1103.3210526315788,
+      "y": 141.64210526315787
+    },
+    "dragging": false
+  },
+  {
+    "id": "chatOpenAICustom_0",
+    "position": {
+      "x": 467.3131578947367,
+      "y": 6.523684210526312
+    },
+    "type": "customNode",
+    "data": {
+      "label": "ChatOpenAI Custom",
+      "name": "chatOpenAICustom",
+      "version": 4,
+      "type": "ChatOpenAI-Custom",
+      "icon": "/usr/local/lib/node_modules/flowise/node_modules/flowise-components/dist/nodes/chatmodels/ChatOpenAICustom/openai.svg",
+      "category": "Chat Models",
+      "description": "Custom/FineTuned model using OpenAI Chat compatible API",
+      "baseClasses": [
+        "ChatOpenAI-Custom",
+        "BaseChatOpenAI",
+        "BaseChatModel",
+        "BaseLanguageModel",
+        "Runnable"
+      ],
+      "credential": "97bbb0a2-42ca-4d6e-8488-e38b3cff3c42",
+      "inputs": {
+        "cache": "",
+        "modelName": "llama-3.3-70b-versatile",
+        "temperature": "0.4",
+        "streaming": true,
+        "maxTokens": "1024",
+        "topP": "",
+        "frequencyPenalty": "",
+        "presencePenalty": "",
+        "timeout": "",
+        "basepath": "https://api.groq.com/openai/v1",
+        "baseOptions": ""
+      },
+      "filePath": "/usr/local/lib/node_modules/flowise/node_modules/flowise-components/dist/nodes/chatmodels/ChatOpenAICustom/ChatOpenAICustom.js",
+      "inputAnchors": [
+        {
+          "label": "Cache",
+          "name": "cache",
+          "type": "BaseCache",
+          "optional": true,
+          "id": "chatOpenAICustom_0-input-cache-BaseCache",
+          "display": true
+        }
+      ],
+      "inputParams": [
+        {
+          "label": "Connect Credential",
+          "name": "credential",
+          "type": "credential",
+          "credentialNames": [
+            "openAIApi"
+          ],
+          "optional": true,
+          "id": "chatOpenAICustom_0-input-credential-credential",
+          "display": true
+        },
+        {
+          "label": "Model Name",
+          "name": "modelName",
+          "type": "string",
+          "placeholder": "ft:gpt-3.5-turbo:my-org:custom_suffix:id",
+          "id": "chatOpenAICustom_0-input-modelName-string",
+          "display": true
+        },
+        {
+          "label": "Temperature",
+          "name": "temperature",
+          "type": "number",
+          "step": 0.1,
+          "default": 0.9,
+          "optional": true,
+          "id": "chatOpenAICustom_0-input-temperature-number",
+          "display": true
+        },
+        {
+          "label": "Streaming",
+          "name": "streaming",
+          "type": "boolean",
+          "default": true,
+          "optional": true,
+          "additionalParams": true,
+          "id": "chatOpenAICustom_0-input-streaming-boolean",
+          "display": true
+        },
+        {
+          "label": "Max Tokens",
+          "name": "maxTokens",
+          "type": "number",
+          "step": 1,
+          "optional": true,
+          "additionalParams": true,
+          "id": "chatOpenAICustom_0-input-maxTokens-number",
+          "display": true
+        },
+        {
+          "label": "Top Probability",
+          "name": "topP",
+          "type": "number",
+          "step": 0.1,
+          "optional": true,
+          "additionalParams": true,
+          "id": "chatOpenAICustom_0-input-topP-number",
+          "display": true
+        },
+        {
+          "label": "Frequency Penalty",
+          "name": "frequencyPenalty",
+          "type": "number",
+          "step": 0.1,
+          "optional": true,
+          "additionalParams": true,
+          "id": "chatOpenAICustom_0-input-frequencyPenalty-number",
+          "display": true
+        },
+        {
+          "label": "Presence Penalty",
+          "name": "presencePenalty",
+          "type": "number",
+          "step": 0.1,
+          "optional": true,
+          "additionalParams": true,
+          "id": "chatOpenAICustom_0-input-presencePenalty-number",
+          "display": true
+        },
+        {
+          "label": "Timeout",
+          "name": "timeout",
+          "type": "number",
+          "step": 1,
+          "optional": true,
+          "additionalParams": true,
+          "id": "chatOpenAICustom_0-input-timeout-number",
+          "display": true
+        },
+        {
+          "label": "BasePath",
+          "name": "basepath",
+          "type": "string",
+          "optional": true,
+          "additionalParams": true,
+          "id": "chatOpenAICustom_0-input-basepath-string",
+          "display": true
+        },
+        {
+          "label": "BaseOptions",
+          "name": "baseOptions",
+          "type": "json",
+          "optional": true,
+          "additionalParams": true,
+          "id": "chatOpenAICustom_0-input-baseOptions-json",
+          "display": true
+        }
+      ],
+      "outputs": {},
+      "outputAnchors": [
+        {
+          "id": "chatOpenAICustom_0-output-chatOpenAICustom-ChatOpenAI-Custom|BaseChatOpenAI|BaseChatModel|BaseLanguageModel|Runnable",
+          "name": "chatOpenAICustom",
+          "label": "ChatOpenAI-Custom",
+          "description": "Custom/FineTuned model using OpenAI Chat compatible API",
+          "type": "ChatOpenAI-Custom | BaseChatOpenAI | BaseChatModel | BaseLanguageModel | Runnable"
+        }
+      ],
+      "id": "chatOpenAICustom_0",
+      "selected": false
+    },
+    "width": 300,
+    "height": 583,
+    "selected": false,
+    "positionAbsolute": {
+      "x": 467.3131578947367,
+      "y": 6.523684210526312
+    },
+    "dragging": false
+  },
+  {
+    "id": "bufferMemory_0",
+    "position": {
+      "x": 770.9565789473685,
+      "y": 38.98526315789485
+    },
+    "type": "customNode",
+    "data": {
+      "label": "Buffer Memory",
+      "name": "bufferMemory",
+      "version": 2,
+      "type": "BufferMemory",
+      "icon": "/usr/local/lib/node_modules/flowise/node_modules/flowise-components/dist/nodes/memory/BufferMemory/memory.svg",
+      "category": "Memory",
+      "description": "Retrieve chat messages stored in database",
+      "baseClasses": [
+        "BufferMemory",
+        "BaseChatMemory",
+        "BaseMemory"
+      ],
+      "inputs": {
+        "sessionId": "12",
+        "memoryKey": "chat_history"
+      },
+      "filePath": "/usr/local/lib/node_modules/flowise/node_modules/flowise-components/dist/nodes/memory/BufferMemory/BufferMemory.js",
+      "inputAnchors": [],
+      "inputParams": [
+        {
+          "label": "Session Id",
+          "name": "sessionId",
+          "type": "string",
+          "description": "If not specified, a random id will be used. Learn <a target=\"_blank\" href=\"https://docs.flowiseai.com/memory#ui-and-embedded-chat\">more</a>",
+          "default": "",
+          "additionalParams": true,
+          "optional": true,
+          "id": "bufferMemory_0-input-sessionId-string",
+          "display": true
+        },
+        {
+          "label": "Memory Key",
+          "name": "memoryKey",
+          "type": "string",
+          "default": "chat_history",
+          "additionalParams": true,
+          "id": "bufferMemory_0-input-memoryKey-string",
+          "display": true
+        }
+      ],
+      "outputs": {},
+      "outputAnchors": [
+        {
+          "id": "bufferMemory_0-output-bufferMemory-BufferMemory|BaseChatMemory|BaseMemory",
+          "name": "bufferMemory",
+          "label": "BufferMemory",
+          "description": "Retrieve chat messages stored in database",
+          "type": "BufferMemory | BaseChatMemory | BaseMemory"
+        }
+      ],
+      "id": "bufferMemory_0",
+      "selected": false
+    },
+    "width": 300,
+    "height": 259,
+    "selected": false,
+    "positionAbsolute": {
+      "x": 770.9565789473685,
+      "y": 38.98526315789485
+    },
+    "dragging": false
+  }
+]

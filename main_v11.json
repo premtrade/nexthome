@@ -1,0 +1,453 @@
+{
+  "id": "lW5mGPOkiPI7jHXs",
+  "name": "Next Home - Property AI Processor",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 2
+            }
+          ]
+        }
+      },
+      "id": "trigger-id-001",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        0,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT id, tenant_id, title, description, price, parish, bedrooms, bathrooms, lot_size, amenities, status, created_at FROM properties WHERE ai_processed = false AND status = 'active' LIMIT 1;",
+        "options": {}
+      },
+      "id": "1",
+      "name": "Trigger Polling",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.2,
+      "position": [
+        200,
+        300
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "UiVjly5vgM3yn3AG",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            {
+              "name": "id",
+              "value": "={{ $json.id }}"
+            },
+            {
+              "name": "tenant_id",
+              "value": "={{ $json.tenant_id }}"
+            },
+            {
+              "name": "title",
+              "value": "={{ $json.title }}"
+            },
+            {
+              "name": "description",
+              "value": "={{ $json.description || 'No description provided' }}"
+            },
+            {
+              "name": "parish",
+              "value": "={{ $json.parish }}"
+            },
+            {
+              "name": "amenities_text",
+              "value": "={{ Array.isArray($json.amenities) ? $json.amenities.join(', ') : '' }}"
+            },
+            {
+              "name": "status",
+              "value": "={{ $json.status }}"
+            },
+            {
+              "name": "assigned_agent_id",
+              "value": "={{ $json.assigned_agent_id }}"
+            }
+          ],
+          "number": [
+            {
+              "name": "price",
+              "value": "={{ parseFloat($json.price) }}"
+            },
+            {
+              "name": "bedrooms",
+              "value": "={{ parseInt($json.bedrooms) }}"
+            },
+            {
+              "name": "bathrooms",
+              "value": "={{ parseInt($json.bathrooms) }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "2",
+      "name": "Normalization",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        420,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://flowise:3000/api/v1/prediction/3e641813-69b3-4e80-9b6d-51de4e396e58",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"question\": \"Generate SEO for this property:\\nTitle: {{ $json.title }}\\nLocation: {{ $json.parish }}\\nBedrooms: {{ $json.bedrooms }}\\nBathrooms: {{ $json.bathrooms }}\\nPrice: {{ $json.price }}\\nAmenities: {{ $json.amenities_text }}\",\n  \"overrideConfig\": {\n    \"property_id\": \"{{ $json.id }}\",\n    \"tenant_id\": \"{{ $json.tenant_id }}\"\n  }\n}",
+        "options": {
+          "responseFormat": "json"
+        }
+      },
+      "id": "3",
+      "name": "SEO Generation",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        640,
+        300
+      ],
+      "retryOnFail": true,
+      "maxRetries": 3,
+      "waitBetweenRetries": 5000
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://flowise:3000/api/v1/prediction/734fc77d-ecf1-47eb-bc96-2bab58862c78",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"question\": \"Classify persona for this property:\\nTitle: {{ $node['Normalization'].json.title }}\\nDescription: {{ $node['Normalization'].json.description }}\\nPrice: {{ $node['Normalization'].json.price }}\\nAmenities: {{ $node['Normalization'].json.amenities_text }}\",\n  \"overrideConfig\": {\n    \"property_id\": \"{{ $node['Normalization'].json.id }}\",\n    \"tenant_id\": \"{{ $node['Normalization'].json.tenant_id }}\"\n  }\n}",
+        "options": {
+          "responseFormat": "json"
+        }
+      },
+      "id": "4",
+      "name": "Persona Classification",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        860,
+        300
+      ],
+      "retryOnFail": true,
+      "maxRetries": 3
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "=SELECT price FROM properties WHERE parish = '{{ $node['Normalization'].json.parish }}' AND bedrooms = {{ $node['Normalization'].json.bedrooms }} AND status = 'active' AND tenant_id = '{{ $node['Normalization'].json.tenant_id }}' LIMIT 50;"
+      },
+      "id": "5",
+      "name": "Get Competitor Prices",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.2,
+      "position": [
+        1080,
+        300
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "UiVjly5vgM3yn3AG",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const currentPrice = $node['Normalization'].json.price;\nconst competitors = items.map(i => parseFloat(i.json.price)).sort((a, b) => a - b);\n\nif (competitors.length === 0) {\n  return [{ json: { percentile: 0.5, competitiveness: \"Average\" } }];\n}\n\nlet rank = competitors.filter(p => p < currentPrice).length;\nlet percentile = rank / competitors.length;\n\nlet comp = \"Average\";\nif (percentile < 0.3) comp = \"Underpriced\";\nelse if (percentile > 0.7) comp = \"Premium\";\n\nreturn [{\n  json: {\n    percentile,\n    competitiveness: comp\n  }\n}];"
+      },
+      "id": "6",
+      "name": "Calculate Rank",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1300,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://flowise:3000/api/v1/prediction/8a8328f8-352c-4344-8be5-b4dabacb4656",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"question\": \"generate embeddings\",\n  \"input\": \"Title: {{ $node['Normalization'].json.title }}\\nLocation: {{ $node['Normalization'].json.parish }}\\nBedrooms: {{ $node['Normalization'].json.bedrooms }}\\nPrice: {{ $node['Normalization'].json.price }}\\nSEO Description: {{ $node['Parse Results'].json.seo_description }}\\nAmenities: {{ $node['Normalization'].json.amenities_text }}\\nPersona: {{ $node['Parse Results'].json.primary_persona }}\",\n  \"overrideConfig\": {\n    \"property_id\": \"{{ $node['Normalization'].json.id }}\",\n    \"tenant_id\": \"{{ $node['Normalization'].json.tenant_id }}\"\n  }\n}",
+        "options": {}
+      },
+      "id": "7",
+      "name": "Gen Embeddings",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1520,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://qdrant:6333/collections/properties/points",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"points\": [\n    {\n      \"id\": \"{{ $node['Normalization'].json.id }}\",\n      \"vector\": {{ JSON.stringify($json.embedding) }},\n      \"payload\": {\n        \"tenant_id\": \"{{ $node['Normalization'].json.tenant_id }}\",\n        \"price\": {{ $node['Normalization'].json.price }},\n        \"parish\": \"{{ $node['Normalization'].json.parish }}\",\n        \"bedrooms\": {{ $node['Normalization'].json.bedrooms }},\n        \"persona\": \"{{ $node['Persona Classification'].json.primary_persona }}\",\n        \"competitiveness\": \"{{ $node['Calculate Rank'].json.competitiveness }}\"\n      }\n    }\n  ]\n}",
+        "options": {}
+      },
+      "id": "8",
+      "name": "Store in Qdrant",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1740,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "=UPDATE properties SET seo_description = '{{ $node['Parse Results'].json.seo_description.replace(/'/g, \"''\") }}', meta_title = '{{ $node['Parse Results'].json.meta_title.replace(/'/g, \"''\") }}', meta_description = '{{ $node['Parse Results'].json.meta_description.replace(/'/g, \"''\") }}', buyer_persona = '{{ $node['Parse Results'].json.primary_persona.replace(/'/g, \"''\") }}', competitiveness = '{{ $node['Calculate Rank'].json.competitiveness }}', ai_processed = true, updated_at = NOW() WHERE id = '{{ $node['Normalization'].json.id }}';"
+      },
+      "id": "9",
+      "name": "Update DB",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.2,
+      "position": [
+        1960,
+        300
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "UiVjly5vgM3yn3AG",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeCondition": "string"
+          },
+          "conditions": [
+            {
+              "leftValue": "={{ $node['Calculate Rank'].json.competitiveness }}",
+              "rightValue": "Underpriced",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            },
+            {
+              "leftValue": "={{ $node['Parse Results'].json.primary_persona }}",
+              "rightValue": "Investor",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "id": "10",
+      "name": "Check Alerts",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        2180,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.whatsapp-automation.com/send",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"agent_id\": \"{{ $node['Normalization'].json.assigned_agent_id }}\",\n  \"message\": \"High opportunity listing detected: {{ $node['Normalization'].json.title }} ({{ $node['Calculate Rank'].json.competitiveness }})\"\n}",
+        "options": {}
+      },
+      "id": "11",
+      "name": "Send Alert",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        2400,
+        250
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\nconst seoText = $node['SEO Generation'].json.text || \"\";\nconst personaText = $node['Persona Classification'].json.text || \"\";\n\nfunction extractJson(text) {\n  if (!text) return {};\n  try {\n    const match = text.match(/\\{[\\s\\S]*\\}/);\n    if (match) {\n        let jsonStr = match[0].replace(/,\\s*}/g, '}');\n        return JSON.parse(jsonStr);\n    }\n    return {};\n  } catch (e) {\n    return {};\n  }\n}\n\nconst seo = extractJson(seoText);\nconst persona = extractJson(personaText);\n\nreturn [{\n  json: {\n    seo_description: seo.seo_description || \"Luxury property in \" + ($node['Normalization'].json.parish || \"St. James\"),\n    meta_title: seo.meta_title || $node['Normalization'].json.title,\n    meta_description: seo.meta_description || \"Luxury villa for sale\",\n    primary_persona: persona.primary_persona || \"Luxury buyer\"\n  }\n}];\n"
+      },
+      "id": "parse_results_id",
+      "name": "Parse Results",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1000,
+        100
+      ]
+    }
+  ],
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Trigger Polling",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Trigger Polling": {
+      "main": [
+        [
+          {
+            "node": "Normalization",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalization": {
+      "main": [
+        [
+          {
+            "node": "SEO Generation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SEO Generation": {
+      "main": [
+        [
+          {
+            "node": "Persona Classification",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Persona Classification": {
+      "main": [
+        [
+          {
+            "node": "Parse Results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Competitor Prices": {
+      "main": [
+        [
+          {
+            "node": "Calculate Rank",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Calculate Rank": {
+      "main": [
+        [
+          {
+            "node": "Update DB",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gen Embeddings": {
+      "main": [
+        [
+          {
+            "node": "Store in Qdrant",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Store in Qdrant": {
+      "main": [
+        [
+          {
+            "node": "Update DB",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update DB": {
+      "main": [
+        [
+          {
+            "node": "Check Alerts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Alerts": {
+      "main": [
+        [
+          {
+            "node": "Send Alert",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse Results": {
+      "main": [
+        [
+          {
+            "node": "Get Competitor Prices",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "errorWorkflow": "rqxDLuVBtw4fTaEw"
+  }
+}

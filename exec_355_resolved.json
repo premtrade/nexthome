@@ -1,0 +1,487 @@
+{
+  "version": 1,
+  "startData": {},
+  "resultData": {
+    "error": {
+      "level": "warning",
+      "tags": {},
+      "description": "Try changing the type of comparison. Alternatively you can enable 'Convert types where required'.",
+      "timestamp": 1771998289540,
+      "context": {
+        "itemIndex": 0
+      },
+      "functionality": "regular",
+      "name": "NodeOperationError",
+      "node": {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeCondition": "string"
+            },
+            "conditions": [
+              {
+                "leftValue": "={{ $node['Calculate Rank'].json.competitiveness }}",
+                "rightValue": "Underpriced",
+                "operator": "equals"
+              },
+              {
+                "leftValue": "={{ $node['Persona Classification'].json.primary_persona }}",
+                "rightValue": "Investor",
+                "operator": "<<LOOP: 142>>"
+              }
+            ],
+            "combinator": "or"
+          },
+          "options": {}
+        },
+        "id": {},
+        "name": "Check Alerts",
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2,
+        "position": [
+          2180,
+          300
+        ]
+      },
+      "messages": [],
+      "message": "Cannot read properties of undefined (reading 'toLowerCase')",
+      "stack": "NodeOperationError: Cannot read properties of undefined (reading 'toLowerCase')\n    at extractValue (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file+packages+core_@opentelemetry+api@1.9.0_@opentelemetry+exporter-trace-otlp_9f358c3eeaef0d2736f54ac9757ada43/node_modules/n8n-core/src/execution-engine/node-execution-context/utils/extract-value.ts:211:9)\n    at ExecuteContext._getNodeParameter (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file+packages+core_@opentelemetry+api@1.9.0_@opentelemetry+exporter-trace-otlp_9f358c3eeaef0d2736f54ac9757ada43/node_modules/n8n-core/src/execution-engine/node-execution-context/node-execution-context.ts:499:29)\n    at ExecuteContext.getNodeParameter (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file+packages+core_@opentelemetry+api@1.9.0_@opentelemetry+exporter-trace-otlp_9f358c3eeaef0d2736f54ac9757ada43/node_modules/n8n-core/src/execution-engine/node-execution-context/execute-context.ts:134:9)\n    at /usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-nodes-base@file+packages+nodes-base_@aws-sdk+credential-providers@3.808.0_asn1.js@5_8da18263ca0574b0db58d4fefd8173ce/node_modules/n8n-nodes-base/nodes/If/V2/IfV2.node.ts:96:18\n    at Array.forEach (<anonymous>)\n    at ExecuteContext.execute (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-nodes-base@file+packages+nodes-base_@aws-sdk+credential-providers@3.808.0_asn1.js@5_8da18263ca0574b0db58d4fefd8173ce/node_modules/n8n-nodes-base/nodes/If/V2/IfV2.node.ts:88:23)\n    at WorkflowExecute.executeNode (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file+packages+core_@opentelemetry+api@1.9.0_@opentelemetry+exporter-trace-otlp_9f358c3eeaef0d2736f54ac9757ada43/node_modules/n8n-core/src/execution-engine/workflow-execute.ts:1043:31)\n    at WorkflowExecute.runNode (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file+packages+core_@opentelemetry+api@1.9.0_@opentelemetry+exporter-trace-otlp_9f358c3eeaef0d2736f54ac9757ada43/node_modules/n8n-core/src/execution-engine/workflow-execute.ts:1222:22)\n    at /usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file+packages+core_@opentelemetry+api@1.9.0_@opentelemetry+exporter-trace-otlp_9f358c3eeaef0d2736f54ac9757ada43/node_modules/n8n-core/src/execution-engine/workflow-execute.ts:1659:38\n    at processTicksAndRejections (node:internal/process/task_queues:103:5)"
+    },
+    "runData": {
+      "Schedule Trigger": [
+        {
+          "startTime": 1771998284140,
+          "executionIndex": 0,
+          "source": [],
+          "hints": [],
+          "executionTime": 1,
+          "executionStatus": "success",
+          "data": {
+            "main": [
+              [
+                {
+                  "json": {
+                    "timestamp": "2026-02-25T00:44:44.020-05:00",
+                    "Readable date": "February 25th 2026, 12:44:44 am",
+                    "Readable time": "12:44:44 am",
+                    "Day of week": "Wednesday",
+                    "Year": "2026",
+                    "Month": "February",
+                    "Day of month": [
+                      {
+                        "startTime": 1771998284248,
+                        "executionIndex": 2,
+                        "source": [
+                          {
+                            "previousNode": "Trigger Polling",
+                            "previousNodeOutput": 0,
+                            "previousNodeRun": 0
+                          }
+                        ],
+                        "hints": [],
+                        "executionTime": 5,
+                        "executionStatus": "<<LOOP: 59>>",
+                        "data": {
+                          "main": [
+                            [
+                              {
+                                "json": {
+                                  "id": "be51ca61-81e3-45ca-888a-5d0d82f4fb29",
+                                  "tenant_id": "00000000-0000-0000-0000-000000000001",
+                                  "title": "Beachfront Penthouse",
+                                  "description": "Stunning penthouse with panoramic ocean views and luxury interiors.",
+                                  "price": "2500000.00",
+                                  "parish": "St. James",
+                                  "bedrooms": 3,
+                                  "bathrooms": 3,
+                                  "lot_size": null,
+                                  "amenities": [],
+                                  "status": "active",
+                                  "assigned_agent_id": null,
+                                  "seo_description": null,
+                                  "meta_title": null,
+                                  "meta_description": null,
+                                  "buyer_persona": null,
+                                  "competitiveness": null,
+                                  "ai_processed": false,
+                                  "created_at": "2026-02-25T05:37:42.132Z",
+                                  "updated_at": "<<LOOP: 193>>"
+                                },
+                                "pairedItem": {
+                                  "item": 0
+                                }
+                              }
+                            ]
+                          ]
+                        }
+                      }
+                    ],
+                    "Hour": {
+                      "version": 1,
+                      "startData": "<<LOOP: 1>>",
+                      "resultData": "<<LOOP: 2>>",
+                      "executionData": {
+                        "contextData": {},
+                        "nodeExecutionStack": [
+                          {
+                            "node": {
+                              "parameters": {
+                                "conditions": {
+                                  "options": {
+                                    "caseSensitive": true,
+                                    "leftValue": "<<LOOP: 116>>",
+                                    "typeCondition": "<<LOOP: 117>>"
+                                  },
+                                  "conditions": [
+                                    {
+                                      "leftValue": "<<LOOP: 140>>",
+                                      "rightValue": "<<LOOP: 141>>",
+                                      "operator": "<<LOOP: 142>>"
+                                    },
+                                    {
+                                      "leftValue": "<<LOOP: 143>>",
+                                      "rightValue": "<<LOOP: 144>>",
+                                      "operator": "<<LOOP: 142>>"
+                                    }
+                                  ],
+                                  "combinator": "<<LOOP: 94>>"
+                                },
+                                "options": {}
+                              },
+                              "id": "<<LOOP: 37>>",
+                              "name": "<<LOOP: 6>>",
+                              "type": "<<LOOP: 38>>",
+                              "typeVersion": 2,
+                              "position": [
+                                2180,
+                                300
+                              ]
+                            },
+                            "data": {
+                              "main": [
+                                [
+                                  {
+                                    "json": {
+                                      "success": true
+                                    },
+                                    "pairedItem": {
+                                      "item": 0
+                                    }
+                                  }
+                                ]
+                              ]
+                            },
+                            "source": {
+                              "main": [
+                                {
+                                  "previousNode": "Update DB",
+                                  "previousNodeOutput": 0,
+                                  "previousNodeRun": 0
+                                }
+                              ]
+                            }
+                          }
+                        ],
+                        "metadata": {},
+                        "waitingExecution": "<<LOOP: 10>>",
+                        "waitingExecutionSource": {},
+                        "runtimeData": {
+                          "version": 1,
+                          "establishedAt": 1771998284134,
+                          "source": "trigger",
+                          "triggerNode": {
+                            "name": "Schedule Trigger",
+                            "type": "n8n-nodes-base.scheduleTrigger"
+                          }
+                        }
+                      }
+                    },
+                    "Minute": {
+                      "startTime": 1771998287871,
+                      "executionIndex": 4,
+                      "source": [
+                        {
+                          "previousNode": "SEO Generation",
+                          "previousNodeOutput": 0,
+                          "previousNodeRun": 0
+                        }
+                      ],
+                      "hints": [],
+                      "executionTime": 914,
+                      "executionStatus": "<<LOOP: 59>>",
+                      "data": {
+                        "main": [
+                          [
+                            {
+                              "json": {
+                                "text": "Based on the provided property details, I would classify the buyer persona as follows:\n\n```\n{\n  \"primary_persona\": \"Luxury buyer\",\n  \"confidence\": 0.9\n}\n```\n\nThe high price point of $2,500,000 and the description of the property as a \"beachfront penthouse\" with \"luxury interiors\" and \"panoramic ocean views\" suggest that this property is targeted towards high-end buyers who are looking for a luxurious and exclusive living experience. The confidence score of 0.9 indicates a strong likelihood that the primary persona is a luxury buyer.",
+                                "question": "Classify persona for this property:\nTitle: Beachfront Penthouse\nDescription: Stunning penthouse with panoramic ocean views and luxury interiors.\nPrice: 2500000.00\nAmenities: ",
+                                "chatId": "4ab55fb2-b9ac-43ed-88dc-be13bca7c1bf",
+                                "chatMessageId": "5c49b400-991e-47a2-a92a-0542631a80b1",
+                                "isStreamValid": false,
+                                "sessionId": "<<LOOP: 12>>",
+                                "memoryType": "Buffer Memory"
+                              },
+                              "pairedItem": {
+                                "item": 0
+                              }
+                            }
+                          ]
+                        ]
+                      }
+                    },
+                    "Second": "<<LOOP: 183>>",
+                    "Timezone": "America/New_York (UTC-05:00)"
+                  },
+                  "pairedItem": {
+                    "item": 0
+                  }
+                }
+              ]
+            ]
+          }
+        }
+      ],
+      "Trigger Polling": [
+        {
+          "startTime": 1771998284142,
+          "executionIndex": 1,
+          "source": [
+            {
+              "previousNode": "<<LOOP: 53>>",
+              "previousNodeOutput": 0,
+              "previousNodeRun": 0
+            }
+          ],
+          "hints": [],
+          "executionTime": 105,
+          "executionStatus": "<<LOOP: 59>>",
+          "data": {
+            "main": [
+              [
+                {
+                  "json": {
+                    "id": "<<LOOP: 185>>",
+                    "tenant_id": "<<LOOP: 186>>",
+                    "title": "<<LOOP: 187>>",
+                    "description": "<<LOOP: 188>>",
+                    "price": "<<LOOP: 189>>",
+                    "parish": "<<LOOP: 190>>",
+                    "bedrooms": 3,
+                    "bathrooms": 3,
+                    "lot_size": null,
+                    "amenities": [],
+                    "status": "<<LOOP: 192>>",
+                    "assigned_agent_id": null,
+                    "seo_description": null,
+                    "meta_title": null,
+                    "meta_description": null,
+                    "buyer_persona": null,
+                    "competitiveness": null,
+                    "ai_processed": false,
+                    "created_at": "<<LOOP: 193>>",
+                    "updated_at": "<<LOOP: 193>>"
+                  },
+                  "pairedItem": {
+                    "item": 0
+                  }
+                }
+              ]
+            ]
+          }
+        }
+      ],
+      "Normalization": "<<LOOP: 25>>",
+      "SEO Generation": [
+        {
+          "startTime": 1771998284254,
+          "executionIndex": 3,
+          "source": [
+            {
+              "previousNode": "Normalization",
+              "previousNodeOutput": 0,
+              "previousNodeRun": 0
+            }
+          ],
+          "hints": [],
+          "executionTime": 3615,
+          "executionStatus": "<<LOOP: 59>>",
+          "data": {
+            "main": [
+              [
+                {
+                  "json": {
+                    "text": "```json\n{\n  \"seo_description\": \"Experience the epitome of luxury living in this stunning beachfront penthouse, perfectly situated in the exclusive St. James area. With 3 spacious bedrooms and 3 bathrooms, this magnificent property boasts breathtaking ocean views and unparalleled amenities. Enjoy the tranquility of the beach and the vibrant atmosphere of the surrounding neighborhood. This exceptional penthouse is a rare gem, offering the ultimate in comfort, style, and sophistication. Whether you're looking for a relaxing retreat or an exciting lifestyle, this beachfront penthouse in St. James is the perfect choice. Priced at $2,500,000, this incredible property is a sound investment opportunity for those seeking a luxurious and exclusive lifestyle.\",\n  \"meta_title\": \"St. James Beachfront\",\n  \"meta_description\": \"Luxury beachfront penthouse in St. James for $2,500,000\"\n}\n```",
+                    "question": "Generate SEO for this property:\nTitle: Beachfront Penthouse\nLocation: St. James\nBedrooms: 3\nBathrooms: 3\nPrice: 2500000.00\nAmenities: ",
+                    "chatId": "30b4f7e9-b873-4ac1-9970-f3f9adab2b82",
+                    "chatMessageId": "73a2ac89-79c2-4d64-8d29-933f16df9756",
+                    "isStreamValid": false,
+                    "sessionId": "<<LOOP: 199>>",
+                    "memoryType": "<<LOOP: 200>>"
+                  },
+                  "pairedItem": {
+                    "item": 0
+                  }
+                }
+              ]
+            ]
+          }
+        }
+      ],
+      "Persona Classification": [
+        "<<LOOP: 44>>"
+      ],
+      "Parse Results": [
+        {
+          "startTime": 1771998288786,
+          "executionIndex": 5,
+          "source": [
+            {
+              "previousNode": "Persona Classification",
+              "previousNodeOutput": 0,
+              "previousNodeRun": 0
+            }
+          ],
+          "hints": [],
+          "executionTime": 565,
+          "executionStatus": "<<LOOP: 59>>",
+          "data": {
+            "main": [
+              [
+                {
+                  "json": {
+                    "seo_description": "Experience the epitome of luxury living in this stunning beachfront penthouse, perfectly situated in the exclusive St. James area. With 3 spacious bedrooms and 3 bathrooms, this magnificent property boasts breathtaking ocean views and unparalleled amenities. Enjoy the tranquility of the beach and the vibrant atmosphere of the surrounding neighborhood. This exceptional penthouse is a rare gem, offering the ultimate in comfort, style, and sophistication. Whether you're looking for a relaxing retreat or an exciting lifestyle, this beachfront penthouse in St. James is the perfect choice. Priced at $2,500,000, this incredible property is a sound investment opportunity for those seeking a luxurious and exclusive lifestyle.",
+                    "meta_title": "St. James Beachfront",
+                    "meta_description": "Luxury beachfront penthouse in St. James for $2,500,000",
+                    "primary_persona": "Luxury buyer"
+                  },
+                  "pairedItem": {
+                    "item": 0
+                  }
+                }
+              ]
+            ]
+          }
+        }
+      ],
+      "Get Competitor Prices": [
+        {
+          "startTime": 1771998289352,
+          "executionIndex": 6,
+          "source": [
+            {
+              "previousNode": "Parse Results",
+              "previousNodeOutput": 0,
+              "previousNodeRun": 0
+            }
+          ],
+          "hints": [],
+          "executionTime": 45,
+          "executionStatus": "<<LOOP: 59>>",
+          "data": {
+            "main": [
+              [
+                {
+                  "json": {
+                    "price": "<<LOOP: 189>>"
+                  },
+                  "pairedItem": {
+                    "item": 0
+                  }
+                }
+              ]
+            ]
+          }
+        }
+      ],
+      "Calculate Rank": [
+        {
+          "startTime": 1771998289397,
+          "executionIndex": 7,
+          "source": [
+            {
+              "previousNode": "Get Competitor Prices",
+              "previousNodeOutput": 0,
+              "previousNodeRun": 0
+            }
+          ],
+          "hints": [],
+          "executionTime": 39,
+          "executionStatus": "<<LOOP: 59>>",
+          "data": {
+            "main": [
+              [
+                {
+                  "json": {
+                    "percentile": 0,
+                    "competitiveness": "<<LOOP: 141>>"
+                  },
+                  "pairedItem": {
+                    "item": 0
+                  }
+                }
+              ]
+            ]
+          }
+        }
+      ],
+      "Update DB": [
+        {
+          "startTime": 1771998289436,
+          "executionIndex": 8,
+          "source": [
+            {
+              "previousNode": "Calculate Rank",
+              "previousNodeOutput": 0,
+              "previousNodeRun": 0
+            }
+          ],
+          "hints": [],
+          "executionTime": 82,
+          "executionStatus": "<<LOOP: 59>>",
+          "data": {
+            "main": [
+              [
+                {
+                  "json": "<<LOOP: 156>>",
+                  "pairedItem": [
+                    {
+                      "item": 0
+                    }
+                  ]
+                }
+              ]
+            ]
+          }
+        }
+      ],
+      "Check Alerts": [
+        {
+          "startTime": 1771998289519,
+          "executionIndex": 9,
+          "source": "<<LOOP: 85>>",
+          "hints": [],
+          "executionTime": 46,
+          "executionStatus": "error",
+          "error": {
+            "level": "<<LOOP: 13>>",
+            "tags": "<<LOOP: 14>>",
+            "description": "<<LOOP: 15>>",
+            "timestamp": 1771998289540,
+            "context": "<<LOOP: 16>>",
+            "functionality": "<<LOOP: 17>>",
+            "name": "<<LOOP: 18>>",
+            "node": "<<LOOP: 19>>",
+            "messages": "<<LOOP: 20>>",
+            "message": "<<LOOP: 21>>",
+            "stack": "<<LOOP: 22>>"
+          }
+        }
+      ]
+    },
+    "lastNodeExecuted": "<<LOOP: 6>>"
+  },
+  "executionData": "<<LOOP: 3>>"
+}

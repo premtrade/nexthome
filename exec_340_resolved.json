@@ -1,0 +1,336 @@
+{
+  "version": 1,
+  "startData": {},
+  "resultData": {
+    "error": {
+      "level": "warning",
+      "tags": {},
+      "description": "Failed query: SELECT price FROM properties WHERE parish = '' AND bedrooms =  AND status = 'active' AND tenant_id = '' LIMIT 50;",
+      "timestamp": 1771997101294,
+      "context": {
+        "itemIndex": 0
+      },
+      "functionality": "regular",
+      "name": "NodeOperationError",
+      "node": {
+        "parameters": {
+          "resource": "database",
+          "operation": "executeQuery",
+          "query": "=SELECT price FROM properties WHERE parish = '{{ $node['Normalization'].json.parish }}' AND bedrooms = {{ $node['Normalization'].json.bedrooms }} AND status = 'active' AND tenant_id = '{{ $node['Normalization'].json.tenant_id }}' LIMIT 50;",
+          "options": {}
+        },
+        "id": {
+          "Schedule Trigger": [
+            {
+              "startTime": 1771997097423,
+              "executionIndex": 0,
+              "source": [],
+              "hints": [],
+              "executionTime": 4,
+              "executionStatus": "success",
+              "data": {
+                "main": [
+                  [
+                    {
+                      "json": {
+                        "timestamp": "2026-02-25T00:24:57.052-05:00",
+                        "Readable date": "February 25th 2026, 12:24:57 am",
+                        "Readable time": "12:24:57 am",
+                        "Day of week": "Wednesday",
+                        "Year": "2026",
+                        "Month": "February",
+                        "Day of month": [
+                          {
+                            "startTime": 1771997097547,
+                            "executionIndex": 2,
+                            "source": [
+                              {
+                                "previousNode": "Trigger Polling",
+                                "previousNodeOutput": 0,
+                                "previousNodeRun": 0
+                              }
+                            ],
+                            "hints": [],
+                            "executionTime": 4,
+                            "executionStatus": "<<LOOP: 57>>",
+                            "data": {
+                              "main": [
+                                [
+                                  {
+                                    "json": {
+                                      "success": true
+                                    },
+                                    "pairedItem": {
+                                      "item": 0
+                                    }
+                                  }
+                                ]
+                              ]
+                            }
+                          }
+                        ],
+                        "Hour": {
+                          "version": 1,
+                          "startData": "<<LOOP: 1>>",
+                          "resultData": "<<LOOP: 2>>",
+                          "executionData": {
+                            "contextData": {},
+                            "nodeExecutionStack": [
+                              {
+                                "node": {
+                                  "parameters": {
+                                    "resource": "<<LOOP: 50>>",
+                                    "operation": "<<LOOP: 51>>",
+                                    "query": "<<LOOP: 52>>",
+                                    "options": {}
+                                  },
+                                  "id": "<<LOOP: 34>>",
+                                  "name": "Get Competitor Prices",
+                                  "type": "n8n-nodes-base.postgres",
+                                  "typeVersion": 2.2,
+                                  "position": [
+                                    1080,
+                                    300
+                                  ],
+                                  "credentials": {
+                                    "postgres": {
+                                      "id": "UiVjly5vgM3yn3AG",
+                                      "name": "Postgres account"
+                                    }
+                                  }
+                                },
+                                "data": {
+                                  "main": [
+                                    [
+                                      {
+                                        "json": {
+                                          "seo_description": "",
+                                          "meta_title": "<<LOOP: 130>>",
+                                          "meta_description": "<<LOOP: 130>>",
+                                          "primary_persona": "Unknown"
+                                        },
+                                        "pairedItem": {
+                                          "item": 0
+                                        }
+                                      }
+                                    ]
+                                  ]
+                                },
+                                "source": {
+                                  "main": [
+                                    {
+                                      "previousNode": "Parse Results",
+                                      "previousNodeOutput": 0,
+                                      "previousNodeRun": 0
+                                    }
+                                  ]
+                                }
+                              }
+                            ],
+                            "metadata": {},
+                            "waitingExecution": {},
+                            "waitingExecutionSource": {},
+                            "runtimeData": {
+                              "version": 1,
+                              "establishedAt": 1771997097410,
+                              "source": "trigger",
+                              "triggerNode": {
+                                "name": "Schedule Trigger",
+                                "type": "n8n-nodes-base.scheduleTrigger"
+                              }
+                            }
+                          }
+                        },
+                        "Minute": [
+                          {
+                            "startTime": 1771997097428,
+                            "executionIndex": 1,
+                            "source": [
+                              {
+                                "previousNode": "<<LOOP: 48>>",
+                                "previousNodeOutput": 0,
+                                "previousNodeRun": 0
+                              }
+                            ],
+                            "hints": [],
+                            "executionTime": 118,
+                            "executionStatus": "<<LOOP: 57>>",
+                            "data": {
+                              "main": [
+                                [
+                                  {
+                                    "json": {
+                                      "success": true
+                                    },
+                                    "pairedItem": [
+                                      {
+                                        "item": 0
+                                      }
+                                    ]
+                                  }
+                                ]
+                              ]
+                            }
+                          }
+                        ],
+                        "Second": "<<LOOP: 57>>",
+                        "Timezone": "America/New_York (UTC-05:00)"
+                      },
+                      "pairedItem": {
+                        "item": 0
+                      }
+                    }
+                  ]
+                ]
+              }
+            }
+          ],
+          "Trigger Polling": "<<LOOP: 24>>",
+          "Normalization": "<<LOOP: 25>>",
+          "SEO Generation": [
+            {
+              "startTime": 1771997097551,
+              "executionIndex": 3,
+              "source": [
+                {
+                  "previousNode": "Normalization",
+                  "previousNodeOutput": 0,
+                  "previousNodeRun": 0
+                }
+              ],
+              "hints": [],
+              "executionTime": 2707,
+              "executionStatus": "<<LOOP: 57>>",
+              "data": {
+                "main": [
+                  [
+                    {
+                      "json": {
+                        "text": "It seems like you didn't provide any property details. Please provide the necessary information, such as title, location, bedrooms, bathrooms, price, and amenities, and I'll be happy to generate SEO-optimized content for the property.\n\nOnce you provide the details, I can create a JSON object with the following keys:\n\n* seo_description: A detailed description of the property, highlighting its best features and amenities.\n* meta_title: A concise and attention-grabbing title that summarizes the property.\n* meta_description: A brief summary of the property, including its key features and price.\n\nPlease provide the property details, and I'll get started on creating the SEO content.",
+                        "question": "Generate SEO for this property:\nTitle: \nLocation: \nBedrooms: \nBathrooms: \nPrice: \nAmenities: ",
+                        "chatId": "50b0d40b-a39d-4305-987f-39e56b5bc578",
+                        "chatMessageId": "a2c2583e-4e1f-4fa8-b611-dc22f33983c0",
+                        "isStreamValid": false,
+                        "sessionId": "<<LOOP: 12>>",
+                        "memoryType": "Buffer Memory"
+                      },
+                      "pairedItem": {
+                        "item": 0
+                      }
+                    }
+                  ]
+                ]
+              }
+            }
+          ],
+          "Persona Classification": [
+            {
+              "startTime": 1771997100261,
+              "executionIndex": 4,
+              "source": [
+                {
+                  "previousNode": "SEO Generation",
+                  "previousNodeOutput": 0,
+                  "previousNodeRun": 0
+                }
+              ],
+              "hints": [],
+              "executionTime": 780,
+              "executionStatus": "<<LOOP: 57>>",
+              "data": {
+                "main": [
+                  [
+                    {
+                      "json": {
+                        "text": "```json\n{\n  \"primary_persona\": \"Unknown\",\n  \"confidence\": 0.0\n}\n```",
+                        "question": "Classify persona for this property:\nTitle: \nDescription: \nPrice: \nAmenities: ",
+                        "chatId": "3fa9a5f0-2ab3-4a82-b7c6-1278fd4931ad",
+                        "chatMessageId": "31f82650-de4e-4b2f-9f42-252ab31cf239",
+                        "isStreamValid": false,
+                        "sessionId": "<<LOOP: 148>>",
+                        "memoryType": "<<LOOP: 149>>"
+                      },
+                      "pairedItem": {
+                        "item": 0
+                      }
+                    }
+                  ]
+                ]
+              }
+            }
+          ],
+          "Parse Results": [
+            {
+              "startTime": 1771997101042,
+              "executionIndex": 5,
+              "source": [
+                {
+                  "previousNode": "Persona Classification",
+                  "previousNodeOutput": 0,
+                  "previousNodeRun": 0
+                }
+              ],
+              "hints": [],
+              "executionTime": 220,
+              "executionStatus": "<<LOOP: 57>>",
+              "data": {
+                "main": [
+                  [
+                    {
+                      "json": "<<LOOP: 117>>",
+                      "pairedItem": {
+                        "item": 0
+                      }
+                    }
+                  ]
+                ]
+              }
+            }
+          ],
+          "Get Competitor Prices": [
+            {
+              "startTime": 1771997101263,
+              "executionIndex": 6,
+              "source": "<<LOOP: 74>>",
+              "hints": [],
+              "executionTime": 46,
+              "executionStatus": "error",
+              "error": {
+                "level": "<<LOOP: 13>>",
+                "tags": "<<LOOP: 14>>",
+                "description": "<<LOOP: 15>>",
+                "timestamp": 1771997101294,
+                "context": "<<LOOP: 16>>",
+                "functionality": "<<LOOP: 17>>",
+                "name": "<<LOOP: 18>>",
+                "node": "<<LOOP: 19>>",
+                "messages": [],
+                "message": "Syntax error at line 1 near \"AND\"",
+                "stack": "NodeOperationError: Syntax error at line 1 near \"AND\"\n    at parsePostgresError (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-nodes-base@file+packages+nodes-base_@aws-sdk+credential-providers@3.808.0_asn1.js@5_8da18263ca0574b0db58d4fefd8173ce/node_modules/n8n-nodes-base/nodes/Postgres/v2/helpers/utils.ts:123:9)\n    at /usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-nodes-base@file+packages+nodes-base_@aws-sdk+credential-providers@3.808.0_asn1.js@5_8da18263ca0574b0db58d4fefd8173ce/node_modules/n8n-nodes-base/nodes/Postgres/v2/helpers/utils.ts:267:19\n    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at ExecuteContext.execute (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-nodes-base@file+packages+nodes-base_@aws-sdk+credential-providers@3.808.0_asn1.js@5_8da18263ca0574b0db58d4fefd8173ce/node_modules/n8n-nodes-base/nodes/Postgres/v2/actions/database/executeQuery.operation.ts:149:9)\n    at ExecuteContext.router (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-nodes-base@file+packages+nodes-base_@aws-sdk+credential-providers@3.808.0_asn1.js@5_8da18263ca0574b0db58d4fefd8173ce/node_modules/n8n-nodes-base/nodes/Postgres/v2/actions/router.ts:41:17)\n    at ExecuteContext.execute (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-nodes-base@file+packages+nodes-base_@aws-sdk+credential-providers@3.808.0_asn1.js@5_8da18263ca0574b0db58d4fefd8173ce/node_modules/n8n-nodes-base/nodes/Postgres/v2/PostgresV2.node.ts:26:10)\n    at WorkflowExecute.executeNode (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file+packages+core_@opentelemetry+api@1.9.0_@opentelemetry+exporter-trace-otlp_9f358c3eeaef0d2736f54ac9757ada43/node_modules/n8n-core/src/execution-engine/workflow-execute.ts:1043:8)\n    at WorkflowExecute.runNode (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file+packages+core_@opentelemetry+api@1.9.0_@opentelemetry+exporter-trace-otlp_9f358c3eeaef0d2736f54ac9757ada43/node_modules/n8n-core/src/execution-engine/workflow-execute.ts:1222:11)\n    at /usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file+packages+core_@opentelemetry+api@1.9.0_@opentelemetry+exporter-trace-otlp_9f358c3eeaef0d2736f54ac9757ada43/node_modules/n8n-core/src/execution-engine/workflow-execute.ts:1659:27\n    at /usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file+packages+core_@opentelemetry+api@1.9.0_@opentelemetry+exporter-trace-otlp_9f358c3eeaef0d2736f54ac9757ada43/node_modules/n8n-core/src/execution-engine/workflow-execute.ts:2302:11"
+              }
+            }
+          ]
+        },
+        "name": "<<LOOP: 6>>",
+        "type": "<<LOOP: 35>>",
+        "typeVersion": 2.2,
+        "position": [
+          1080,
+          300
+        ],
+        "credentials": {
+          "postgres": {
+            "id": "<<LOOP: 82>>",
+            "name": "<<LOOP: 83>>"
+          }
+        }
+      },
+      "messages": "<<LOOP: 20>>",
+      "message": "<<LOOP: 21>>",
+      "stack": "<<LOOP: 22>>"
+    },
+    "runData": "<<LOOP: 5>>",
+    "lastNodeExecuted": "<<LOOP: 6>>"
+  },
+  "executionData": "<<LOOP: 3>>"
+}

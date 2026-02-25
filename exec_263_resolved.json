@@ -1,0 +1,308 @@
+{
+  "version": 1,
+  "startData": {},
+  "resultData": {
+    "error": {
+      "level": "warning",
+      "tags": {},
+      "description": "Error: predictionsServices.buildChatflow - Missing value for input variable `title`\n\nTroubleshooting URL: https://js.langchain.com/docs/troubleshooting/errors/INVALID_PROMPT_INPUT/\n",
+      "timestamp": 1771989777583,
+      "context": {
+        "itemIndex": 0,
+        "request": {
+          "body": {
+            "question": "generate seo",
+            "title": "Test Luxury Villa",
+            "location": "St. James",
+            "bedrooms": "<<LOOP: 4>>",
+            "bathrooms": {
+              "contextData": {},
+              "nodeExecutionStack": [
+                {
+                  "node": {
+                    "parameters": {
+                      "curlImport": "",
+                      "method": "POST",
+                      "url": "http://flowise:3000/api/v1/prediction/3e641813-69b3-4e80-9b6d-51de4e396e58",
+                      "authentication": "none",
+                      "provideSslCertificates": false,
+                      "sendQuery": false,
+                      "sendHeaders": false,
+                      "sendBody": true,
+                      "contentType": "json",
+                      "specifyBody": "<<LOOP: 52>>",
+                      "jsonBody": "={\n  \"question\": \"generate seo\",\n  \"title\": \"{{ $json.title }}\",\n  \"location\": \"{{ $json.parish }}\",\n  \"bedrooms\": \"{{ $json.bedrooms }}\",\n  \"bathrooms\": \"{{ $json.bathrooms }}\",\n  \"price\": \"{{ $json.price }}\",\n  \"amenities\": \"{{ $json.amenities_text }}\",\n  \"overrideConfig\": {\n    \"property_id\": \"{{ $json.id }}\",\n    \"tenant_id\": \"{{ $json.tenant_id }}\"\n  }\n}",
+                      "options": {},
+                      "infoMessage": "<<LOOP: 50>>"
+                    },
+                    "id": "<<LOOP: 33>>",
+                    "name": "SEO Generation",
+                    "type": "n8n-nodes-base.httpRequest",
+                    "typeVersion": 4.1,
+                    "position": [
+                      640,
+                      300
+                    ],
+                    "retryOnFail": true,
+                    "maxRetries": 3,
+                    "waitBetweenRetries": 5000
+                  },
+                  "data": {
+                    "main": [
+                      [
+                        {
+                          "json": {
+                            "id": "09300ab4-cd49-4347-9927-9e1d61664b71",
+                            "tenant_id": "00000000-0000-0000-0000-000000000001",
+                            "title": "<<LOOP: 73>>",
+                            "description": "Beautiful beachfront property with a private pool and garden.",
+                            "price": "1200000.00",
+                            "parish": "<<LOOP: 74>>",
+                            "bedrooms": 4,
+                            "bathrooms": 3,
+                            "lot_size": null,
+                            "amenities": [],
+                            "status": "active",
+                            "assigned_agent_id": null,
+                            "seo_description": null,
+                            "meta_title": null,
+                            "meta_description": null,
+                            "buyer_persona": null,
+                            "competitiveness": null,
+                            "ai_processed": false,
+                            "created_at": "2026-02-24T12:44:48.217Z",
+                            "updated_at": "<<LOOP: 108>>"
+                          },
+                          "pairedItem": {
+                            "item": 0
+                          }
+                        }
+                      ]
+                    ]
+                  },
+                  "source": {
+                    "main": [
+                      {
+                        "previousNode": "Normalization",
+                        "previousNodeOutput": 0,
+                        "previousNodeRun": 0
+                      }
+                    ]
+                  }
+                }
+              ],
+              "metadata": {},
+              "waitingExecution": {},
+              "waitingExecutionSource": {},
+              "runtimeData": {
+                "version": 1,
+                "establishedAt": 1771989773251,
+                "source": "trigger",
+                "triggerNode": {
+                  "name": "Schedule Trigger",
+                  "type": "n8n-nodes-base.scheduleTrigger"
+                }
+              }
+            },
+            "price": "<<LOOP: 76>>",
+            "amenities": "<<LOOP: 50>>",
+            "overrideConfig": {
+              "property_id": "<<LOOP: 87>>",
+              "tenant_id": "<<LOOP: 88>>"
+            }
+          },
+          "headers": {
+            "accept": "application/json,text/html,application/xhtml+xml,application/xml,text/*;q=0.9, image/*;q=0.8, */*;q=0.7"
+          },
+          "method": "<<LOOP: 48>>",
+          "uri": "<<LOOP: 49>>",
+          "gzip": true,
+          "rejectUnauthorized": true,
+          "followRedirect": true,
+          "resolveWithFullResponse": true,
+          "sendCredentialsOnCrossOriginRedirect": true,
+          "followAllRedirects": true,
+          "timeout": 300000,
+          "encoding": null,
+          "json": false,
+          "useStream": true
+        }
+      },
+      "functionality": "regular",
+      "name": "NodeApiError",
+      "node": {
+        "parameters": {
+          "curlImport": "<<LOOP: 50>>",
+          "method": "<<LOOP: 48>>",
+          "url": "<<LOOP: 49>>",
+          "authentication": "<<LOOP: 51>>",
+          "provideSslCertificates": false,
+          "sendQuery": false,
+          "sendHeaders": false,
+          "sendBody": true,
+          "contentType": "<<LOOP: 52>>",
+          "specifyBody": "<<LOOP: 52>>",
+          "jsonBody": "<<LOOP: 53>>",
+          "options": {},
+          "infoMessage": "<<LOOP: 50>>"
+        },
+        "id": "<<LOOP: 33>>",
+        "name": "<<LOOP: 6>>",
+        "type": "<<LOOP: 34>>",
+        "typeVersion": 4.1,
+        "position": [
+          640,
+          300
+        ],
+        "retryOnFail": true,
+        "maxRetries": 3,
+        "waitBetweenRetries": 5000
+      },
+      "messages": [
+        "500 - \"{\\\"statusCode\\\":500,\\\"success\\\":false,\\\"message\\\":\\\"Error: predictionsServices.buildChatflow - Missing value for input variable `title`\\\\n\\\\nTroubleshooting URL: https://js.langchain.com/docs/troubleshooting/errors/INVALID_PROMPT_INPUT/\\\\n\\\",\\\"stack\\\":{}}\""
+      ],
+      "httpCode": "500",
+      "message": "The service was not able to process your request",
+      "stack": "NodeApiError: The service was not able to process your request\n    at ExecuteContext.execute (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-nodes-base@file+packages+nodes-base_@aws-sdk+credential-providers@3.808.0_asn1.js@5_8da18263ca0574b0db58d4fefd8173ce/node_modules/n8n-nodes-base/nodes/HttpRequest/V3/HttpRequestV3.node.ts:864:16)\n    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at WorkflowExecute.executeNode (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file+packages+core_@opentelemetry+api@1.9.0_@opentelemetry+exporter-trace-otlp_9f358c3eeaef0d2736f54ac9757ada43/node_modules/n8n-core/src/execution-engine/workflow-execute.ts:1043:8)\n    at WorkflowExecute.runNode (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file+packages+core_@opentelemetry+api@1.9.0_@opentelemetry+exporter-trace-otlp_9f358c3eeaef0d2736f54ac9757ada43/node_modules/n8n-core/src/execution-engine/workflow-execute.ts:1222:11)\n    at /usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file+packages+core_@opentelemetry+api@1.9.0_@opentelemetry+exporter-trace-otlp_9f358c3eeaef0d2736f54ac9757ada43/node_modules/n8n-core/src/execution-engine/workflow-execute.ts:1659:27\n    at /usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file+packages+core_@opentelemetry+api@1.9.0_@opentelemetry+exporter-trace-otlp_9f358c3eeaef0d2736f54ac9757ada43/node_modules/n8n-core/src/execution-engine/workflow-execute.ts:2302:11"
+    },
+    "runData": {
+      "Schedule Trigger": [
+        {
+          "startTime": 1771989773269,
+          "executionIndex": 0,
+          "source": [],
+          "hints": [],
+          "executionTime": 20,
+          "executionStatus": "success",
+          "data": {
+            "main": [
+              [
+                {
+                  "json": {
+                    "timestamp": "2026-02-24T22:22:53.026-05:00",
+                    "Readable date": "February 24th 2026, 10:22:53 pm",
+                    "Readable time": "10:22:53 pm",
+                    "Day of week": "Tuesday",
+                    "Year": "2026",
+                    "Month": "February",
+                    "Day of month": "<<LOOP: 24>>",
+                    "Hour": "<<LOOP: 22>>",
+                    "Minute": "<<LOOP: 116>>",
+                    "Second": "<<LOOP: 53>>",
+                    "Timezone": "America/New_York (UTC-05:00)"
+                  },
+                  "pairedItem": {
+                    "item": 0
+                  }
+                }
+              ]
+            ]
+          }
+        }
+      ],
+      "Trigger Polling": [
+        {
+          "startTime": 1771989773293,
+          "executionIndex": 1,
+          "source": [
+            {
+              "previousNode": "<<LOOP: 44>>",
+              "previousNodeOutput": 0,
+              "previousNodeRun": 0
+            }
+          ],
+          "hints": [],
+          "executionTime": 202,
+          "executionStatus": "<<LOOP: 57>>",
+          "data": {
+            "main": [
+              [
+                {
+                  "json": {
+                    "id": "<<LOOP: 87>>",
+                    "tenant_id": "<<LOOP: 88>>",
+                    "title": "<<LOOP: 73>>",
+                    "description": "<<LOOP: 105>>",
+                    "price": "<<LOOP: 76>>",
+                    "parish": "<<LOOP: 74>>",
+                    "bedrooms": 4,
+                    "bathrooms": 3,
+                    "lot_size": null,
+                    "amenities": [],
+                    "status": "<<LOOP: 107>>",
+                    "assigned_agent_id": null,
+                    "seo_description": null,
+                    "meta_title": null,
+                    "meta_description": null,
+                    "buyer_persona": null,
+                    "competitiveness": null,
+                    "ai_processed": false,
+                    "created_at": "<<LOOP: 108>>",
+                    "updated_at": "<<LOOP: 108>>"
+                  },
+                  "pairedItem": {
+                    "item": 0
+                  }
+                }
+              ]
+            ]
+          }
+        }
+      ],
+      "Normalization": [
+        {
+          "startTime": 1771989773496,
+          "executionIndex": 2,
+          "source": [
+            {
+              "previousNode": "Trigger Polling",
+              "previousNodeOutput": 0,
+              "previousNodeRun": 0
+            }
+          ],
+          "hints": [],
+          "executionTime": 6,
+          "executionStatus": "<<LOOP: 57>>",
+          "data": {
+            "main": [
+              [
+                {
+                  "json": "<<LOOP: 98>>",
+                  "pairedItem": {
+                    "item": 0
+                  }
+                }
+              ]
+            ]
+          }
+        }
+      ],
+      "SEO Generation": [
+        {
+          "startTime": 1771989773503,
+          "executionIndex": 3,
+          "source": "<<LOOP: 65>>",
+          "hints": [],
+          "executionTime": 4081,
+          "executionStatus": "error",
+          "error": {
+            "level": "<<LOOP: 13>>",
+            "tags": "<<LOOP: 14>>",
+            "description": "<<LOOP: 15>>",
+            "timestamp": 1771989777583,
+            "context": "<<LOOP: 16>>",
+            "functionality": "<<LOOP: 17>>",
+            "name": "<<LOOP: 18>>",
+            "node": "<<LOOP: 19>>",
+            "messages": "<<LOOP: 20>>",
+            "httpCode": "<<LOOP: 21>>",
+            "message": "<<LOOP: 22>>",
+            "stack": "<<LOOP: 23>>"
+          }
+        }
+      ]
+    },
+    "lastNodeExecuted": "<<LOOP: 6>>"
+  },
+  "executionData": "<<LOOP: 3>>"
+}

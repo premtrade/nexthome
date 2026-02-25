@@ -1,0 +1,433 @@
+{
+  "version": 1,
+  "startData": {},
+  "resultData": {
+    "error": {
+      "level": "warning",
+      "tags": {},
+      "description": "Failed query: UPDATE properties SET seo_description = 'Escape to a world of luxury and sophistication at the Test Luxury Villa, a stunning 4-bedroom, 3-bathroom villa located in the prestigious St. James area. This exceptional villa boasts a unique blend of modern design, elegant finishes, and luxurious amenities, making it the perfect retreat for families, couples, and individuals seeking a luxurious lifestyle. With its prime location in St. James, residents can enjoy easy access to the area''s top attractions, including pristine beaches, world-class golf courses, and a range of fine dining and entertainment options. The villa's spacious bedrooms and bathrooms provide ample space for relaxation and entertainment, while its beautifully appointed interiors and stunning architecture make it a true gem in the St. James real estate market. Priced at $1,200,000, this incredible villa offers a rare opportunity to own a piece of paradise in one of the most desirable locations in the Caribbean. Whether you're looking for a luxurious vacation home, a permanent residence, or a smart investment, the Test Luxury Villa is the ultimate choice for those seeking the finest in luxury living in St. James. With its perfect blend of luxury, comfort, and style, this villa is sure to exceed your expectations and provide a truly unforgettable living experience.', meta_title = 'St James Luxury Real Estate', meta_description = 'Luxury 4-bed villa in St James for sale at $1.2M', buyer_persona = 'Luxury buyer', competitiveness = 'Underpriced', ai_processed = true, updated_at = NOW() WHERE id = '09300ab4-cd49-4347-9927-9e1d61664b71' AND tenant_id = '00000000-0000-0000-0000-000000000001';",
+      "timestamp": 1771996610068,
+      "context": {
+        "itemIndex": 0
+      },
+      "functionality": "regular",
+      "name": "NodeOperationError",
+      "node": {
+        "parameters": {
+          "resource": "database",
+          "operation": "executeQuery",
+          "query": "=UPDATE properties SET seo_description = '{{ $node['Parse Results'].json.seo_description.replace(\"'\", \"''\") }}', meta_title = '{{ $node['Parse Results'].json.meta_title.replace(\"'\", \"''\") }}', meta_description = '{{ $node['Parse Results'].json.meta_description.replace(\"'\", \"''\") }}', buyer_persona = '{{ $node['Parse Results'].json.primary_persona.replace(\"'\", \"''\") }}', competitiveness = '{{ $node['Calculate Rank'].json.competitiveness }}', ai_processed = true, updated_at = NOW() WHERE id = '{{ $node['Normalization'].json.id }}' AND tenant_id = '{{ $node['Normalization'].json.tenant_id }}';",
+          "options": {}
+        },
+        "id": {},
+        "name": "Update DB",
+        "type": "n8n-nodes-base.postgres",
+        "typeVersion": 2.2,
+        "position": [
+          1960,
+          300
+        ],
+        "credentials": {
+          "postgres": {
+            "id": "UiVjly5vgM3yn3AG",
+            "name": "Postgres account"
+          }
+        }
+      },
+      "messages": [],
+      "message": "Syntax error at line 1 near \"s\"",
+      "stack": "NodeOperationError: Syntax error at line 1 near \"s\"\n    at parsePostgresError (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-nodes-base@file+packages+nodes-base_@aws-sdk+credential-providers@3.808.0_asn1.js@5_8da18263ca0574b0db58d4fefd8173ce/node_modules/n8n-nodes-base/nodes/Postgres/v2/helpers/utils.ts:123:9)\n    at /usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-nodes-base@file+packages+nodes-base_@aws-sdk+credential-providers@3.808.0_asn1.js@5_8da18263ca0574b0db58d4fefd8173ce/node_modules/n8n-nodes-base/nodes/Postgres/v2/helpers/utils.ts:267:19\n    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at ExecuteContext.execute (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-nodes-base@file+packages+nodes-base_@aws-sdk+credential-providers@3.808.0_asn1.js@5_8da18263ca0574b0db58d4fefd8173ce/node_modules/n8n-nodes-base/nodes/Postgres/v2/actions/database/executeQuery.operation.ts:149:9)\n    at ExecuteContext.router (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-nodes-base@file+packages+nodes-base_@aws-sdk+credential-providers@3.808.0_asn1.js@5_8da18263ca0574b0db58d4fefd8173ce/node_modules/n8n-nodes-base/nodes/Postgres/v2/actions/router.ts:41:17)\n    at ExecuteContext.execute (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-nodes-base@file+packages+nodes-base_@aws-sdk+credential-providers@3.808.0_asn1.js@5_8da18263ca0574b0db58d4fefd8173ce/node_modules/n8n-nodes-base/nodes/Postgres/v2/PostgresV2.node.ts:26:10)\n    at WorkflowExecute.executeNode (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file+packages+core_@opentelemetry+api@1.9.0_@opentelemetry+exporter-trace-otlp_9f358c3eeaef0d2736f54ac9757ada43/node_modules/n8n-core/src/execution-engine/workflow-execute.ts:1043:8)\n    at WorkflowExecute.runNode (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file+packages+core_@opentelemetry+api@1.9.0_@opentelemetry+exporter-trace-otlp_9f358c3eeaef0d2736f54ac9757ada43/node_modules/n8n-core/src/execution-engine/workflow-execute.ts:1222:11)\n    at /usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file+packages+core_@opentelemetry+api@1.9.0_@opentelemetry+exporter-trace-otlp_9f358c3eeaef0d2736f54ac9757ada43/node_modules/n8n-core/src/execution-engine/workflow-execute.ts:1659:27\n    at /usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file+packages+core_@opentelemetry+api@1.9.0_@opentelemetry+exporter-trace-otlp_9f358c3eeaef0d2736f54ac9757ada43/node_modules/n8n-core/src/execution-engine/workflow-execute.ts:2302:11"
+    },
+    "runData": {
+      "Schedule Trigger": [
+        {
+          "startTime": 1771996572551,
+          "executionIndex": 0,
+          "source": [],
+          "hints": [],
+          "executionTime": 225,
+          "executionStatus": "success",
+          "data": {
+            "main": [
+              [
+                {
+                  "json": {
+                    "timestamp": "2026-02-25T00:16:07.284-05:00",
+                    "Readable date": "February 25th 2026, 12:16:07 am",
+                    "Readable time": "12:16:07 am",
+                    "Day of week": "Wednesday",
+                    "Year": "2026",
+                    "Month": "February",
+                    "Day of month": [
+                      {
+                        "startTime": 1771996577272,
+                        "executionIndex": 2,
+                        "source": [
+                          {
+                            "previousNode": "Trigger Polling",
+                            "previousNodeOutput": 0,
+                            "previousNodeRun": 0
+                          }
+                        ],
+                        "hints": [],
+                        "executionTime": 48,
+                        "executionStatus": "<<LOOP: 61>>",
+                        "data": {
+                          "main": [
+                            [
+                              {
+                                "json": {
+                                  "id": "09300ab4-cd49-4347-9927-9e1d61664b71",
+                                  "tenant_id": "00000000-0000-0000-0000-000000000001",
+                                  "title": "Test Luxury Villa",
+                                  "description": "Beautiful beachfront property with a private pool and garden.",
+                                  "price": "1200000.00",
+                                  "parish": "St. James",
+                                  "bedrooms": 4,
+                                  "bathrooms": 3,
+                                  "lot_size": null,
+                                  "amenities": [],
+                                  "status": "active",
+                                  "assigned_agent_id": null,
+                                  "seo_description": null,
+                                  "meta_title": null,
+                                  "meta_description": null,
+                                  "buyer_persona": null,
+                                  "competitiveness": null,
+                                  "ai_processed": false,
+                                  "created_at": "2026-02-24T12:44:48.217Z",
+                                  "updated_at": "<<LOOP: 174>>"
+                                },
+                                "pairedItem": {
+                                  "item": 0
+                                }
+                              }
+                            ]
+                          ]
+                        }
+                      }
+                    ],
+                    "Hour": {
+                      "version": 1,
+                      "startData": "<<LOOP: 1>>",
+                      "resultData": "<<LOOP: 2>>",
+                      "executionData": {
+                        "contextData": {},
+                        "nodeExecutionStack": [
+                          {
+                            "node": {
+                              "parameters": {
+                                "resource": "<<LOOP: 54>>",
+                                "operation": "<<LOOP: 55>>",
+                                "query": "<<LOOP: 56>>",
+                                "options": {}
+                              },
+                              "id": "<<LOOP: 36>>",
+                              "name": "<<LOOP: 6>>",
+                              "type": "<<LOOP: 37>>",
+                              "typeVersion": 2.2,
+                              "position": [
+                                1960,
+                                300
+                              ],
+                              "credentials": {
+                                "postgres": {
+                                  "id": "<<LOOP: 92>>",
+                                  "name": "<<LOOP: 93>>"
+                                }
+                              }
+                            },
+                            "data": {
+                              "main": [
+                                [
+                                  {
+                                    "json": {
+                                      "percentile": 0,
+                                      "competitiveness": "Underpriced"
+                                    },
+                                    "pairedItem": {
+                                      "item": 0
+                                    }
+                                  }
+                                ]
+                              ]
+                            },
+                            "source": {
+                              "main": [
+                                {
+                                  "previousNode": "Calculate Rank",
+                                  "previousNodeOutput": 0,
+                                  "previousNodeRun": 0
+                                }
+                              ]
+                            }
+                          }
+                        ],
+                        "metadata": "<<LOOP: 9>>",
+                        "waitingExecution": {},
+                        "waitingExecutionSource": {},
+                        "runtimeData": {
+                          "version": 1,
+                          "establishedAt": 1771996572357,
+                          "source": "trigger",
+                          "triggerNode": {
+                            "name": "Schedule Trigger",
+                            "type": "n8n-nodes-base.scheduleTrigger"
+                          }
+                        }
+                      }
+                    },
+                    "Minute": "<<LOOP: 16>>",
+                    "Second": "<<LOOP: 7>>",
+                    "Timezone": "America/New_York (UTC-05:00)"
+                  },
+                  "pairedItem": {
+                    "item": 0
+                  }
+                }
+              ]
+            ]
+          }
+        }
+      ],
+      "Trigger Polling": [
+        {
+          "startTime": 1771996572795,
+          "executionIndex": 1,
+          "source": [
+            {
+              "previousNode": "<<LOOP: 52>>",
+              "previousNodeOutput": 0,
+              "previousNodeRun": 0
+            }
+          ],
+          "hints": [],
+          "executionTime": 4476,
+          "executionStatus": "<<LOOP: 61>>",
+          "data": {
+            "main": [
+              [
+                {
+                  "json": {
+                    "id": "<<LOOP: 166>>",
+                    "tenant_id": "<<LOOP: 167>>",
+                    "title": "<<LOOP: 168>>",
+                    "description": "<<LOOP: 169>>",
+                    "price": "<<LOOP: 170>>",
+                    "parish": "<<LOOP: 171>>",
+                    "bedrooms": 4,
+                    "bathrooms": 3,
+                    "lot_size": null,
+                    "amenities": [],
+                    "status": "<<LOOP: 173>>",
+                    "assigned_agent_id": null,
+                    "seo_description": null,
+                    "meta_title": null,
+                    "meta_description": null,
+                    "buyer_persona": null,
+                    "competitiveness": null,
+                    "ai_processed": false,
+                    "created_at": "<<LOOP: 174>>",
+                    "updated_at": "<<LOOP: 174>>"
+                  },
+                  "pairedItem": {
+                    "item": 0
+                  }
+                }
+              ]
+            ]
+          }
+        }
+      ],
+      "Normalization": "<<LOOP: 25>>",
+      "SEO Generation": [
+        {
+          "startTime": 1771996577347,
+          "executionIndex": 3,
+          "source": [
+            {
+              "previousNode": "Normalization",
+              "previousNodeOutput": 0,
+              "previousNodeRun": 0
+            }
+          ],
+          "hints": [],
+          "executionTime": 28470,
+          "executionStatus": "<<LOOP: 61>>",
+          "data": {
+            "main": [
+              [
+                {
+                  "json": {
+                    "text": "Based on the provided property details, here is a JSON object with the SEO-optimized property description, meta title, and meta description:\n\n```\n{\n  \"seo_description\": \"Escape to a world of luxury and sophistication at the Test Luxury Villa, a stunning 4-bedroom, 3-bathroom villa located in the prestigious St. James area. This exceptional villa boasts a unique blend of modern design, elegant finishes, and luxurious amenities, making it the perfect retreat for families, couples, and individuals seeking a luxurious lifestyle. With its prime location in St. James, residents can enjoy easy access to the area's top attractions, including pristine beaches, world-class golf courses, and a range of fine dining and entertainment options. The villa's spacious bedrooms and bathrooms provide ample space for relaxation and entertainment, while its beautifully appointed interiors and stunning architecture make it a true gem in the St. James real estate market. Priced at $1,200,000, this incredible villa offers a rare opportunity to own a piece of paradise in one of the most desirable locations in the Caribbean. Whether you're looking for a luxurious vacation home, a permanent residence, or a smart investment, the Test Luxury Villa is the ultimate choice for those seeking the finest in luxury living in St. James. With its perfect blend of luxury, comfort, and style, this villa is sure to exceed your expectations and provide a truly unforgettable living experience.\",\n  \"meta_title\": \"St James Luxury Real Estate\",\n  \"meta_description\": \"Luxury 4-bed villa in St James for sale at $1.2M\"\n}\n```",
+                    "question": "Generate SEO for this property:\nTitle: Test Luxury Villa\nLocation: St. James\nBedrooms: 4\nBathrooms: 3\nPrice: 1200000.00\nAmenities: ",
+                    "chatId": "a9c685e8-d0b2-447e-b9f5-1c83f24c517c",
+                    "chatMessageId": "760ce6c7-6f08-4ffa-9238-9643d21ad1ce",
+                    "isStreamValid": false,
+                    "sessionId": "<<LOOP: 12>>",
+                    "memoryType": "Buffer Memory"
+                  },
+                  "pairedItem": {
+                    "item": 0
+                  }
+                }
+              ]
+            ]
+          }
+        }
+      ],
+      "Persona Classification": [
+        {
+          "startTime": 1771996605820,
+          "executionIndex": 4,
+          "source": [
+            {
+              "previousNode": "SEO Generation",
+              "previousNodeOutput": 0,
+              "previousNodeRun": 0
+            }
+          ],
+          "hints": [],
+          "executionTime": 2196,
+          "executionStatus": "<<LOOP: 61>>",
+          "data": {
+            "main": [
+              [
+                {
+                  "json": {
+                    "text": "```json\n{\n  \"primary_persona\": \"Luxury buyer\",\n  \"confidence\": 0.9\n}\n```",
+                    "question": "Classify persona for this property:\nTitle: Test Luxury Villa\nDescription: Beautiful beachfront property with a private pool and garden.\nPrice: 1200000.00\nAmenities: ",
+                    "chatId": "c369d2ea-4dcd-44d8-a6fa-2a72f4dbbcc8",
+                    "chatMessageId": "f09e9606-dee6-4d7d-a450-b07f47254f9a",
+                    "isStreamValid": false,
+                    "sessionId": "<<LOOP: 180>>",
+                    "memoryType": "<<LOOP: 181>>"
+                  },
+                  "pairedItem": {
+                    "item": 0
+                  }
+                }
+              ]
+            ]
+          }
+        }
+      ],
+      "Parse Results": [
+        {
+          "startTime": 1771996608017,
+          "executionIndex": 5,
+          "source": [
+            {
+              "previousNode": "Persona Classification",
+              "previousNodeOutput": 0,
+              "previousNodeRun": 0
+            }
+          ],
+          "hints": [],
+          "executionTime": 1493,
+          "executionStatus": "<<LOOP: 61>>",
+          "data": {
+            "main": [
+              [
+                {
+                  "json": {
+                    "seo_description": "Escape to a world of luxury and sophistication at the Test Luxury Villa, a stunning 4-bedroom, 3-bathroom villa located in the prestigious St. James area. This exceptional villa boasts a unique blend of modern design, elegant finishes, and luxurious amenities, making it the perfect retreat for families, couples, and individuals seeking a luxurious lifestyle. With its prime location in St. James, residents can enjoy easy access to the area's top attractions, including pristine beaches, world-class golf courses, and a range of fine dining and entertainment options. The villa's spacious bedrooms and bathrooms provide ample space for relaxation and entertainment, while its beautifully appointed interiors and stunning architecture make it a true gem in the St. James real estate market. Priced at $1,200,000, this incredible villa offers a rare opportunity to own a piece of paradise in one of the most desirable locations in the Caribbean. Whether you're looking for a luxurious vacation home, a permanent residence, or a smart investment, the Test Luxury Villa is the ultimate choice for those seeking the finest in luxury living in St. James. With its perfect blend of luxury, comfort, and style, this villa is sure to exceed your expectations and provide a truly unforgettable living experience.",
+                    "meta_title": "St James Luxury Real Estate",
+                    "meta_description": "Luxury 4-bed villa in St James for sale at $1.2M",
+                    "primary_persona": "Luxury buyer"
+                  },
+                  "pairedItem": {
+                    "item": 0
+                  }
+                }
+              ]
+            ]
+          }
+        }
+      ],
+      "Get Competitor Prices": [
+        {
+          "startTime": 1771996609510,
+          "executionIndex": 6,
+          "source": [
+            {
+              "previousNode": "Parse Results",
+              "previousNodeOutput": 0,
+              "previousNodeRun": 0
+            }
+          ],
+          "hints": [],
+          "executionTime": 175,
+          "executionStatus": "<<LOOP: 61>>",
+          "data": {
+            "main": [
+              [
+                {
+                  "json": {
+                    "price": "<<LOOP: 170>>"
+                  },
+                  "pairedItem": {
+                    "item": 0
+                  }
+                }
+              ]
+            ]
+          }
+        }
+      ],
+      "Calculate Rank": [
+        {
+          "startTime": 1771996609686,
+          "executionIndex": 7,
+          "source": [
+            {
+              "previousNode": "Get Competitor Prices",
+              "previousNodeOutput": 0,
+              "previousNodeRun": 0
+            }
+          ],
+          "hints": [],
+          "executionTime": 103,
+          "executionStatus": "<<LOOP: 61>>",
+          "data": {
+            "main": [
+              [
+                {
+                  "json": "<<LOOP: 137>>",
+                  "pairedItem": {
+                    "item": 0
+                  }
+                }
+              ]
+            ]
+          }
+        }
+      ],
+      "Update DB": [
+        {
+          "startTime": 1771996609791,
+          "executionIndex": 8,
+          "source": "<<LOOP: 84>>",
+          "hints": [],
+          "executionTime": 538,
+          "executionStatus": "error",
+          "error": {
+            "level": "<<LOOP: 13>>",
+            "tags": "<<LOOP: 14>>",
+            "description": "<<LOOP: 15>>",
+            "timestamp": 1771996610068,
+            "context": "<<LOOP: 16>>",
+            "functionality": "<<LOOP: 17>>",
+            "name": "<<LOOP: 18>>",
+            "node": "<<LOOP: 19>>",
+            "messages": "<<LOOP: 20>>",
+            "message": "<<LOOP: 21>>",
+            "stack": "<<LOOP: 22>>"
+          }
+        }
+      ]
+    },
+    "lastNodeExecuted": "<<LOOP: 6>>"
+  },
+  "executionData": "<<LOOP: 3>>"
+}

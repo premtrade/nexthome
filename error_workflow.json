@@ -1,0 +1,52 @@
+{
+  "id": "rqxDLuVBtw4fTaEw",
+  "name": "Next Home Error Handler",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "2d8f96e4-399a-4c2c-8093-6c7b6d16f860",
+      "name": "Error Trigger",
+      "type": "n8n-nodes-base.errorTrigger",
+      "typeVersion": 1,
+      "position": [
+        400,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "=INSERT INTO ai_errors (workflow_id, node_name, property_id, tenant_id, error_message, payload)\nVALUES (\n  '{{$workflow.id}}',\n  '{{$json.execution.error.node.name}}',\n  '{{ $json.execution.error.context.request.body.overrideConfig.property_id || $json.execution.error.context.request.body.property_id || \"00000000-0000-0000-0000-000000000000\" }}',\n  '{{ $json.execution.error.context.request.body.overrideConfig.tenant_id || $json.execution.error.context.request.body.tenant_id || \"00000000-0000-0000-0000-000000000000\" }}',\n  '{{$json.execution.error.message.replace(\"'\", \"''\")}}',\n  '{{JSON.stringify($json.execution.data.resultData).replace(\"'\", \"''\")}}'  \n);",
+        "options": {}
+      },
+      "id": "7f8e9d0a-1b2c-3d4e-5f6g-7h8i9j0k1l2m",
+      "name": "Log to PG",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.2,
+      "position": [
+        620,
+        300
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "UiVjly5vgM3yn3AG",
+          "name": "Postgres account"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Error Trigger": {
+      "main": [
+        [
+          {
+            "node": "Log to PG",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {}
+}

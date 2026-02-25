@@ -1,0 +1,90 @@
+{
+  "nodes": [
+    {
+      "id": "huggingFaceInferenceEmbeddings_0",
+      "position": {
+        "x": 535.7381578947369,
+        "y": 48.80526315789473
+      },
+      "type": "customNode",
+      "data": {
+        "label": "HuggingFace Inference Embeddings",
+        "name": "huggingFaceInferenceEmbeddings",
+        "version": 1,
+        "type": "HuggingFaceInferenceEmbeddings",
+        "icon": "/usr/local/lib/node_modules/flowise/node_modules/flowise-components/dist/nodes/embeddings/HuggingFaceInferenceEmbedding/HuggingFace.svg",
+        "category": "Embeddings",
+        "description": "HuggingFace Inference API to generate embeddings for a given text",
+        "baseClasses": [
+          "HuggingFaceInferenceEmbeddings",
+          "Embeddings"
+        ],
+        "credential": "3b1d62b5-e920-46f0-a478-e43eee536c58",
+        "inputs": {
+          "modelName": "",
+          "endpoint": ""
+        },
+        "filePath": "/usr/local/lib/node_modules/flowise/node_modules/flowise-components/dist/nodes/embeddings/HuggingFaceInferenceEmbedding/HuggingFaceInferenceEmbedding.js",
+        "inputAnchors": [],
+        "inputParams": [
+          {
+            "label": "Connect Credential",
+            "name": "credential",
+            "type": "credential",
+            "credentialNames": [
+              "huggingFaceApi"
+            ],
+            "id": "huggingFaceInferenceEmbeddings_0-input-credential-credential",
+            "display": true
+          },
+          {
+            "label": "Model",
+            "name": "modelName",
+            "type": "string",
+            "description": "If using own inference endpoint, leave this blank",
+            "placeholder": "sentence-transformers/distilbert-base-nli-mean-tokens",
+            "optional": true,
+            "id": "huggingFaceInferenceEmbeddings_0-input-modelName-string",
+            "display": true
+          },
+          {
+            "label": "Endpoint",
+            "name": "endpoint",
+            "type": "string",
+            "placeholder": "https://xyz.eu-west-1.aws.endpoints.huggingface.cloud/sentence-transformers/all-MiniLM-L6-v2",
+            "description": "Using your own inference endpoint",
+            "optional": true,
+            "id": "huggingFaceInferenceEmbeddings_0-input-endpoint-string",
+            "display": true
+          }
+        ],
+        "outputs": {},
+        "outputAnchors": [
+          {
+            "id": "huggingFaceInferenceEmbeddings_0-output-huggingFaceInferenceEmbeddings-HuggingFaceInferenceEmbeddings|Embeddings",
+            "name": "huggingFaceInferenceEmbeddings",
+            "label": "HuggingFaceInferenceEmbeddings",
+            "description": "HuggingFace Inference API to generate embeddings for a given text",
+            "type": "HuggingFaceInferenceEmbeddings | Embeddings"
+          }
+        ],
+        "id": "huggingFaceInferenceEmbeddings_0",
+        "selected": false
+      },
+      "width": 300,
+      "height": 479,
+      "selected": false,
+      "positionAbsolute": {
+        "x": 535.7381578947369,
+        "y": 48.80526315789473
+      },
+      "dragging": false
+    }
+  ],
+  "edges": [],
+  "viewport": {
+    "x": 14.62440690833182,
+    "y": -66.0958436135889,
+    "zoom": 1.0096792560258112
+  }
+}
